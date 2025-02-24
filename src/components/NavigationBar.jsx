@@ -29,8 +29,8 @@ const NavigationBar = () => {
     const inActiveStyle = "text-gray-900 hover:text-blue-600";
 
     return (
-        <header className="fixed top-0  left-0 right-0 z-20 shadow-md  bg-white">
-        <nav className="flex flex-wrap items-center justify-between px-6 py-4 md:mx-48 max-w-screen-xl">
+        <header className="fixed top-0  left-0 right-0 z-20 shadow-md bg-white">
+        <nav className="flex flex-wrap items-center justify-between px-6 py-4 md:mx-auto max-w-screen-xl">
             {/* Logo */}
             <div>
                 <h1 className="font-bold text-2xl">Raka<span className="text-[#FF543E]">Ramadhani</span></h1>

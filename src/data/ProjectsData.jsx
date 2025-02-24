@@ -14,20 +14,6 @@ const ProjectData = () => {
             desc: "Merupakan desain Aplikasi Learning Management System (LMS) untuk siswa SMP/SMA. Aplikasi ini terinspirasi dari Website LMS yang sering digunakan oleh kampus. Dalam aplikasi ini, pengguna juga dapat mengerjakan tugas, mengerjakan quiz, dan melihat nilai.",
             category: 'webapp',
         },
-        {
-            name: "Project 3",
-            image: "/image/Information.png",
-            desc: "description 2",
-            category: 'webapp',
-            key: 3
-        },
-        {
-            name: "Project 4",
-            image: "/image/Information.png",
-            desc: "description 5",
-            category: 'webapp',
-            key: 4
-        },
     ]
 };
 export default ProjectData;

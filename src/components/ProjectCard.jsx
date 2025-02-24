@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ReactCardFlip from "react-card-flip";
 import { useState } from "react";
+import { ViewIcon } from 'lucide-react';
 
 
 const categories = {
@@ -10,9 +11,9 @@ const categories = {
 }
 
 const categoryColors = {
-    uiux: 'bg-red-500',
-    webapp: 'bg-green-500',
-    none: 'bg-gray-500',
+    uiux: 'bg-label-blue',
+    webapp: 'bg-label-orange',
+    none: 'bg-label-coral',
 };
 
 ProjectCard.propTypes = {
@@ -42,7 +43,7 @@ function ProjectCard(props) {
                     src={props.image}
                     alt="Picture not Found"
                 />
-                <div className="p-4 space-y-12 md:space-y-16">
+                <div className="p-4  space-y-12 md:space-y-16">
                     <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
                         {props.name}
                     </h5>
@@ -51,9 +52,9 @@ function ProjectCard(props) {
                     </p>
                     <button
                         onClick={() => setFlip(!flip)}
-                        className="inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-xl bg-blue-700 text-white hover:bg-blue-800 transition duration-300 ease-in-out"
-                    >
-                        Read more...
+                        className="place-self-end inline-flex space-x-2 px-3 py-2 text-sm font-medium text-center rounded-xl bg-primary text-white hover:bg-primary-light transition duration-300 ease-in-out"
+                    > <ViewIcon/>
+                        <p>View</p>
                     </button>
                 </div>
             </div>
@@ -64,7 +65,7 @@ function ProjectCard(props) {
                     <h5 className="text-xl md:text-2xl text-left font-bold tracking-tight text-gray-900">
                         {props.name}
                     </h5>
-                    <p className="text-sm md:text-base font-normal text-gray-800 text-left">
+                    <p className="text-caption-mobile text-gray-800 text-justify">
                         {props.desc}
                     </p>
                 </div>

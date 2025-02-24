@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+@theme {
+    /* bgColor */
+    --color-dark:#381C64;
+    --color-light:#FFFFFF;
+
+    /* Primary Color */
+    --color-primary: #8342EC;
+    --color-primary-light: #7039CA;
+    --color-primary-dark: #381C64;
+
+    /* Label Color */
+    --color-label-orange: #FF9800;
+    --color-label-blue: #1E88E5;
+    --color-label-green: #4CAF50;
+    --color-label-pink: #E91E63;
+    --color-label-purple: #AB47BC;
+    --color-label-coral: #FF7043;
+
+    /* Status Color */
+    --color-danger: #E30000;
+    --color-warning: #FFBB00;
+    --color-success: #00DE0F;
+    --color-info: #0077FF;
+
+    /* Button Color */
+    --color-cta: #00C49A;
+    --color-warning: #FFBB00;
+    --color-success: #00DE0F;
+    --color-info: #0077FF;
+
+    /* Typography Desktop */
+    --text-h1-desktop: 48px;
+    --text-h2-desktop: 36px;
+    --text-h3-desktop: 32px;
+    --text-body-desktop: 24px;
+    --text-caption-desktop: 20px;
+    --text-btn-desktop: 24px;
+
+    /* Typography Mobile */
+    --text-h1-mobile: 32px;
+    --text-h2-mobile: 28px;
+    --text-h3-mobile: 24px;
+    --text-body-mobile: 20px;
+    --text-caption-mobile: 18px;
+    --text-btn-mobile: 20px;
+
+
+}
