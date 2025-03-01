@@ -17,7 +17,7 @@ const ContactMe = () => {
         alert ("Successfull")
     }
     return (
-        <form onSubmit={Form.handleSubmit(setHandleSubmit)} className="flex shadow border rounded-2xl w-full md:w-6xl h-fit py-8 justify-center border-gray-200">
+        <form onSubmit={Form.handleSubmit(setHandleSubmit)} className="flex shadow border rounded-2xl w-full md:w-6xl h-fit py-8 justify-center border-gray-200 bg-light">
             <div className="flex flex-col gap-4 items-center text-sm md:text-md">
                 <div className="flex flex-col gap-2">
                     <label htmlFor="name">Name</label>

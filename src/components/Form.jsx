@@ -2,10 +2,6 @@ import { useState } from "react";
 // import { useRef } from "react";
 
 const Form =()=>{
-
-    // Uncontrolled Component
-    // const emailRef =useRef(null);
-
     //Controlled Component
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
@@ -14,23 +10,20 @@ const Form =()=>{
     const handleSubmit = () => {
         alert("Email has been sent!"+" "+emailInput + " " + passwordInput);
     };
+
     return(
         <div className="flex flex-col justify-center items-center gap-4">
             <div className="flex flex-col gap-2">
                 <label htmlFor="email">Email</label>
                 <input onChange={(e) => {
                 setEmailInput(e.target.value);
-                        
                         const emailValidation = emailInput.includes("@");
-
                         if(!emailValidation){
                             setEmailError("Email not Valid")
                         } else{
                             setEmailError("")
                         }
                     }
-                    
-                    
                 }
                 className="p-4 w-[360px] border border-gray-400 shadow-xs rounded-xl " id="email" type="text" placeholder="Enter your Email..." value={emailInput}/>
                 <span>{emailError}</span>
@@ -39,17 +32,13 @@ const Form =()=>{
                 <label htmlFor="password">Password</label>
                 <input onChange={(e) => {
                 setPasswordInput(e.target.value);
-                        
                         const passwordValidation = passwordInput.length < 8;
-
                         if(passwordValidation){
                             setPasswordError("Password not Valid")
                         } else{
                             setPasswordError("")
                         }
                     }
-                    
-                    
                 } className="p-4 w-[360px] border border-gray-400 shadow-xs rounded-xl " id="password" type="password" placeholder="Enter your Password..."/>
             <span>{passwordError}</span>
             </div>

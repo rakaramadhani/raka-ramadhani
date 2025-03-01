@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme {    
     /* bgColor */
     --color-dark:#381C64;
     --color-light:#FFFFFF;
@@ -47,4 +47,4 @@
     --text-btn-mobile: 20px;
 
 
-}
+}   

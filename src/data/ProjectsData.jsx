@@ -2,17 +2,28 @@
 const ProjectData = () => {
     return [
         {
-            name: "Website Pelayanan PNM",
+            project: "Website Pelayanan PNM",
             image: "/image/project-pnm.png",
-            desc: "Merupakan desain website untuk tempat berlangsungnya proses bisnis utama pada PNM yaitu Peminjaman Modal dan berfungsi untuk  mengakses berbagai layanan pembiayaan yang disediakan oleh PNM, mulai dari pengajuan pembiayaan hingga pemantauan proses pembiayaan secara real-time.",
+            desc: "Merupakan desain website untuk tempat berlangsungnya proses bisnis utama pada PNM.",
             category:'uiux' ,
+            link:'' ,
             key: 1
         },
         {
-            name: "Learn.it",
+            project: "Learn.it",
             image: "/image/project-learnit.png",
-            desc: "Merupakan desain Aplikasi Learning Management System (LMS) untuk siswa SMP/SMA. Aplikasi ini terinspirasi dari Website LMS yang sering digunakan oleh kampus. Dalam aplikasi ini, pengguna juga dapat mengerjakan tugas, mengerjakan quiz, dan melihat nilai.",
+            desc: "It is a Learning Management System (LMS) application design for junior high/high school students.",
             category: 'webapp',
+            link:'' ,
+            key: 2
+        },
+        {
+            project: "Learn.it",
+            image: "/image/project-learnit.png",
+            desc: "It is a Learning Management System (LMS) application design for junior high/high school students.",
+            category: 'webapp',
+            link:'' ,
+            key: 2
         },
     ]
 };
