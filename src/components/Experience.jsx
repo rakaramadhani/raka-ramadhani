@@ -16,33 +16,35 @@ const categoryColors = {
 
 const Experience = (props) => {
     return (
-        <div className="w-auto h-auto md:w-auto md:h-auto bg-white border rounded-2xl shadow-md border-gray-200 transition duration-300 ease-in-out">
+        <div className="w-full flex flex-col md:flex-row bg-white border rounded-2xl items-center shadow-md border-gray-200 transition duration-300 ease-in-out p-3">
+            {/* Left Side (Image) */}
             <img
-                        className="rounded-t-lg h-cover w-full object-cover"
-                        src={props.image}
-                        alt="Picture not Found"
-                    />
-            <div className="p-5 flex justify-between items-end">
-                {/* Left Side (Job & Company) */}
-                <div className="text-left text-[14px]">
-                    <h1 className="mb-1  font-bold tracking-tight text-gray-900">
-                        {props.job}
-                    </h1>
-                    <h2 className="text-neutral-600">at {props.company}</h2>
-                </div>
+                className="rounded-xl w-full md:w-72 h-40 md:h-56 object-cover"
+                src={props.image}
+                alt="Company"
+            />
 
-                {/* Right Side (Date & Category) */}
-                <div className="text-right flex flex-col items-end space-y-1">
-                    <p className="text-[12px] text-gray-700">
-                        {props.from.toLocaleDateString("en-US", { month: "long", year: "numeric" })} -{" "}
-                        {props.to.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-                    </p>
-                    <p className={`py-1 px-3 text-white text-[12px] rounded-xl ${categoryColors[props.category]}`}>
-                        {categories[props.category]}
-                    </p>
+            {/* Right Side (Details) */}
+            <div className="mt-4 md:m-8 w-full">
+                <div className="flex flex-col md:flex-row justify-between md:items-center">
+                    <div className="text-left">
+                        <p className="text-sm md:text-base text-primary font-semibold">{props.job}</p>
+                        <h1 className="font-bold text-lg md:text-xl text-gray-900">{props.company}</h1>
+                    </div>
+                    <div className='flex-col md:justify-items-end space-y-2'>
+                        <p className="text-xs md:text-sm text-gray-700 mt-2 md:mt-0 text-left md:text-right">
+                            {props.from.toLocaleDateString("en-US", { month: "long", year: "numeric" })} -{" "}
+                            {props.to.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                        </p>
+                        <p className={`px-2 py-1 w-fit rounded-2xl text-[12px] ${categoryColors[props.category]} text-white`}> 
+                            {categories[props.category]} 
+                        </p>
+                    </div>
                 </div>
+                <p className="mt-3 text-sm md:text-base text-gray-600 text-justify">{props.desc}</p>
             </div>
         </div>
+
     )
 }
 

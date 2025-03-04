@@ -19,24 +19,24 @@ const HomePage = () => {
     return (
         <div className="relative w-full h-screen">
             <ParticlesBackground/>
-            <div className="flex flex-col gap-16 mt-16 md:mt-8 mx-auto md:mx-[128px] relative">
+            <div className="flex flex-col gap-16 mt-16 md:mt-8 mx-auto md:mx-[96px] relative">
                 {/* Navbar */}
                 <NavigationBar />
                 
                 {/* Home */}
-                <section id="home" className="mx-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[216px] px-4 md:px-12 h-auto md:h-[720px]">
+                <section id="home" className="mx-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[216px] px-4 md:mt-32 md:px-12 h-auto md:h-full">
                     <Landing />
                 </section>
 
                 {/* About */}
-                <section id="about" className="mx-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-24 px-4 md:px-12">
+                <section id="about" className="mx-4 flex flex-col md:flex-row items-center md:h-[760px] justify-center gap-8 md:gap-24 px-4 md:px-12">
                     <About />
                 </section>
 
                 {/* Project */}
                 <section id="project" className="flex flex-col items-center justify-center text-center px-4 md:px-12">
                     <h1 className="font-bold text-3xl md:text-4xl my-12">My Project 👇</h1>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
                         {Projects.map((project) => (
                             <ProjectCard key={project.key} {...project} />
                         ))}
@@ -46,7 +46,7 @@ const HomePage = () => {
                 {/* Experience */}
                 <section id="experience" className="flex flex-col items-center justify-center text-center px-4 md:px-12">
                     <h1 className="font-bold text-3xl md:text-4xl my-12">My Experience 👇</h1>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                         {Experiences.map((experience) => (
                             <Experience key={experience.key} {...experience} />
                         ))}
@@ -55,7 +55,7 @@ const HomePage = () => {
 
                 {/* Contact Form */}
                 <section id="contact" className="flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:px-12">
-                    <h1 className="font-bold text-3xl md:text-4xl my-12">Contact Me 👇</h1>
+                    <h1 className="font-bold text-3xl md:text-4xl my-12">Let's Connect </h1>
                     {/* <ContactMe /> */}
                     <ReachMe/>
                 </section>

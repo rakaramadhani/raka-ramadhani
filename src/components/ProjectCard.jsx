@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { LucideGithub } from 'lucide-react';
 
 const categories = {
     uiux: 'UI/UX Design',
@@ -7,9 +8,9 @@ const categories = {
 }
 
 const categoryColors = {
-    uiux: 'bg-label-blue',
-    webapp: 'bg-label-orange',
-    none: 'bg-label-coral',
+    uiux: 'text-label-blue',
+    webapp: 'text-label-orange',
+    none: 'text-label-coral',
 };
 
 ProjectCard.propTypes = {
@@ -30,17 +31,25 @@ function ProjectCard(props) {
     return (
         <div className="w-auto h-auto md:w-auto md:h-auto border rounded-xl bg-light shadow-md border-gray-200">
                 <img
-                    className="rounded-t-2xl h-48 w-auto object-cover"
+                    className="rounded-t-2xl h-48 w-full object-cover"
                     src={props.image}
                     alt="Picture not Found"
                 />
-                <div className="p-2 space-y-12 md:space-y-16">
-                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                        {props.project}
-                    </h5>
-                    <p className={`size-max py-1 text-white text-[12px] p-2 rounded-md ${categoryColors[props.category]}`}>
+                <div className=" text-left md:space-y-4 p-4 space-y-2">
+                    <p className={`font-semibold text-caption-mobile md:text-caption-desktop ${categoryColors[props.category]}`}>
                         {categories[props.category]}
                     </p>
+                    <p className="text-xl font-bold text-gray-900">
+                        {props.project}
+                    </p>
+                    <p className='text-caption-mobile md:text-caption-desktop text-gray-600 text-justify'>
+                        {props.desc}
+                    </p>
+
+                    <a href={props.link} className='mt-6 text-primary flex gap-2 underline cursor-pointer'>
+                        <LucideGithub/>
+                        View on Github
+                    </a>
                 </div>
             </div>
     );
