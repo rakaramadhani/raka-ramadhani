@@ -24,17 +24,17 @@ const HomePage = () => {
                 <NavigationBar />
                 
                 {/* Home */}
-                <section id="home" className="mx-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[216px] px-4 md:mt-32 md:px-12 h-auto md:h-full">
+                <section id="home" className="scroll-mt-24 mx-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[216px] px-4 md:mt-32 md:px-12 h-auto md:h-full">
                     <Landing />
                 </section>
 
                 {/* About */}
-                <section id="about" className="mx-4 flex flex-col md:flex-row items-center md:h-[760px] justify-center gap-8 md:gap-24 px-4 md:px-12">
+                <section id="about" className="scroll-mt-24 mx-4 flex flex-col md:flex-row items-center md:h-[760px] justify-center gap-8 md:gap-24 px-4 md:px-12">
                     <About />
                 </section>
 
                 {/* Project */}
-                <section id="project" className="flex flex-col items-center justify-center text-center px-4 md:px-12">
+                <section id="project" className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12">
                     <h1 className="font-bold text-3xl md:text-4xl my-12">My Project 👇</h1>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
                         {Projects.map((project) => (
@@ -44,7 +44,7 @@ const HomePage = () => {
                 </section>
 
                 {/* Experience */}
-                <section id="experience" className="flex flex-col items-center justify-center text-center px-4 md:px-12">
+                <section id="experience" className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12">
                     <h1 className="font-bold text-3xl md:text-4xl my-12">My Experience 👇</h1>
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                         {Experiences.map((experience) => (
@@ -54,7 +54,7 @@ const HomePage = () => {
                 </section>
 
                 {/* Contact Form */}
-                <section id="contact" className="flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:px-12">
+                <section id="contact" className="scroll-mt-24 flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:px-12">
                     <h1 className="font-bold text-3xl md:text-4xl my-12">Let's Connect </h1>
                     {/* <ContactMe /> */}
                     <ReachMe/>

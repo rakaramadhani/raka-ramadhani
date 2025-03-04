@@ -37,7 +37,7 @@ const About = () => {
     </div>
 
     {/* Tombol Download CV */}
-    <button className="flex items-center justify-center space-x-2 mt-8 text-btn-mobile md:text-btn-desktop p-[12px] bg-primary hover:bg-primary-light transition cursor-pointer text-white w-full md:w-fit rounded-2xl">
+    <button className="flex items-center justify-center space-x-2 mt-8 text-btn-mobile md:text-btn-desktop p-[12px] bg-primary hover:bg-primary-light transition cursor-pointer text-white w-full md:w-full rounded-2xl">
       <DownloadIcon size={24} />
       <a href="">Download CV</a>
     </button>
