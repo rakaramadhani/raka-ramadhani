@@ -35,7 +35,7 @@ const HomePage = () => {
 
                 {/* Project */}
                 <section id="project" className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12">
-                    <h1 className="font-bold text-3xl md:text-4xl my-12">My Project 👇</h1>
+                    <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">My Project 👇</h1>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
                         {Projects.map((project) => (
                             <ProjectCard key={project.key} {...project} />
@@ -45,7 +45,7 @@ const HomePage = () => {
 
                 {/* Experience */}
                 <section id="experience" className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12">
-                    <h1 className="font-bold text-3xl md:text-4xl my-12">My Experience 👇</h1>
+                    <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">My Experience 👇</h1>
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                         {Experiences.map((experience) => (
                             <Experience key={experience.key} {...experience} />
@@ -55,7 +55,7 @@ const HomePage = () => {
 
                 {/* Contact Form */}
                 <section id="contact" className="scroll-mt-24 flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:px-12">
-                    <h1 className="font-bold text-3xl md:text-4xl my-12">Let's Connect </h1>
+                    <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Let's Connect </h1>
                     {/* <ContactMe /> */}
                     <ReachMe/>
                 </section>
