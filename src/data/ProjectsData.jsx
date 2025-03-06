@@ -23,7 +23,7 @@ const ProjectData = () => {
             desc: "It is a Learning Management System (LMS) application design for junior high/high school students.",
             category: 'webapp',
             link:'' ,
-            key: 2
+            key: 3
         },
     ]
 };

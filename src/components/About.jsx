@@ -1,5 +1,4 @@
-import { DownloadIcon, Linkedin, Instagram, Github, Phone } from "lucide-react"
-import { Link } from "react-router";
+import { DownloadIcon, Linkedin, Instagram, Github, Phone } from "lucide-react";
 
 const About = () => {
     const aboutMe = "I am a results-driven individual passionate about creativity, continuous learning, and crafting seamless user experiences. With a strong foundation in UI/UX design and front-end development—proficient in HTML, CSS, JavaScript, and PHP—I thrive in building intuitive and visually appealing digital solutions.";
@@ -21,10 +20,10 @@ const About = () => {
             </div>
             
             {/* Tombol Download CV */}
-            <Link to="/files/CV_ACHRIE RAKA RAMADHANI.pdf" target="_blank" download className="flex items-center justify-center space-x-2 mt-8 text-btn-mobile md:text-btn-desktop p-[12px] bg-primary hover:bg-primary-light transition cursor-pointer text-white w-full md:w-full rounded-2xl">
+            <a href="/files/CV_ACHRIE RAKA RAMADHANI.pdf" download className="flex items-center justify-center space-x-2 mt-8 text-btn-mobile md:text-btn-desktop p-[12px] bg-primary hover:bg-primary-light transition cursor-pointer text-white w-full md:w-full rounded-2xl">
               <DownloadIcon size={24} />
-              <a href="">Download CV</a>
-            </Link>
+              Download CV
+            </a>
           </div>
         </div>
     )

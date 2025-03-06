@@ -20,7 +20,7 @@ const CertificateData = () => {
             certification: "Certificate of Competence - Programming and Software Development",
             organizer: "LSP Informatika",
             issued: "2024",
-            key:2
+            key:3
         },
         
     ]

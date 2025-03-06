@@ -22,7 +22,7 @@ const NavigationBar = () => {
     };
 
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen); // Toggle buka/tutup menu
+        setIsMenuOpen(!isMenuOpen);
     };
 
     const menuStyle = "text-xl font-medium block py-2 px-3 rounded-sm cursor-pointer transition duration-300";
@@ -30,7 +30,7 @@ const NavigationBar = () => {
     const inActiveStyle = "text-gray-900 hover:text-blue-600";
 
     return (
-        <header className="fixed top-0  left-0 right-0 z-20 shadow-md bg-white">
+        <header className="fixed top-0  left-0 right-0 z-30 shadow-md bg-white">
             <nav className="flex flex-wrap items-center justify-between px-6 py-4 md:mx-auto max-w-screen-xl">
                 {/* Logo */}
                 <div>
@@ -45,7 +45,7 @@ const NavigationBar = () => {
                 {/* Navigation Menu */}
                 <div className={`absolute md:static bg-white md:flex md:items-center md:space-x-8 
                                 md:w-auto w-full left-0 transition-all duration-500 ease-in-out 
-                                ${isMenuOpen ? "top-16 opacity-100" : "top-[-300px] opacity-0"} md:opacity-100 md:top-0`}>
+                                ${isMenuOpen ? "top-16 opacity-100" : "-translate-y-full opacity-0"} md:opacity-100 md:top-0`}>
                     <ul className="flex md:flex-row flex-col md:items-center md:gap-6 gap-4 text-center">
                         {Menus.map((menu) => (
                             <li key={menu}>

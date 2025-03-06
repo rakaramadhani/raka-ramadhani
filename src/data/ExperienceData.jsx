@@ -19,7 +19,7 @@ const ExperienceData = () => {
             to: new Date(2024, 8, 1),
             category: "internship",
             desc: "I was responsible for identifying system requirements and creating comprehensive Software Requirement Specifications (SRS) and Business Requirement Specifications (BRS) for several applications at Diskominfo Kota Bandung.",
-            key: 1
+            key: 4
         },
         {
             job: "Introduction to Programming and Logic Assistant Practicum",

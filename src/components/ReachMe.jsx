@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import {z} from "zod";
 import { zodResolver} from "@hookform/resolvers/zod";
 import { Phone, LucideMail, Linkedin, Github, Instagram, PinIcon } from "lucide-react";
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2'
 
