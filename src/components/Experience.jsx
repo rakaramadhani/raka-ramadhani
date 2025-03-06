@@ -41,7 +41,7 @@ const Experience = (props) => {
                         </p>
                     </div>
                 </div>
-                <p className="mt-3 text-sm md:text-base text-gray-600 text-justify">{props.desc}</p>
+                <p className="mt-3 text-caption-mobile md:text-caption-desktop text-gray-600 text-justify">{props.desc}</p>
             </div>
         </div>
 

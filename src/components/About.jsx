@@ -1,4 +1,5 @@
 import { DownloadIcon, Linkedin, Instagram, Github, Phone } from "lucide-react"
+import { Link } from "react-router";
 
 const About = () => {
     const aboutMe = "I am a results-driven individual passionate about creativity, continuous learning, and crafting seamless user experiences. With a strong foundation in UI/UX design and front-end development—proficient in HTML, CSS, JavaScript, and PHP—I thrive in building intuitive and visually appealing digital solutions.";
@@ -18,24 +19,12 @@ const About = () => {
                 </p>
               ))}
             </div>
-            {/* Social Media Buttons */}
-            <div className="space-x-4 mt-8 flex justify-center md:justify-start">
-              {[ 
-                { icon: Linkedin, link: "https://www.linkedin.com/in/raka-ramadhani-256106221/" },
-                { icon: Instagram, link: "" },
-                { icon: Github, link: "https://github.com/rakaramadhani" },
-                { icon: Phone, link: "https://wa.me/+6281353252938" }
-              ].map(({ icon: Icon, link }, index) => (
-                <a key={index} href={link} className="bg-gradient-to-b from-[#502B9E] to-[#9400FF] rounded-xl p-2 hover:scale-105 transition ease-in">
-                  <Icon size={24} color="#ffffff" strokeWidth={2} absoluteStrokeWidth />
-                </a>
-              ))}
-            </div>
+            
             {/* Tombol Download CV */}
-            <button className="flex items-center justify-center space-x-2 mt-8 text-btn-mobile md:text-btn-desktop p-[12px] bg-primary hover:bg-primary-light transition cursor-pointer text-white w-full md:w-full rounded-2xl">
+            <Link to="/files/CV_ACHRIE RAKA RAMADHANI.pdf" target="_blank" download className="flex items-center justify-center space-x-2 mt-8 text-btn-mobile md:text-btn-desktop p-[12px] bg-primary hover:bg-primary-light transition cursor-pointer text-white w-full md:w-full rounded-2xl">
               <DownloadIcon size={24} />
               <a href="">Download CV</a>
-            </button>
+            </Link>
           </div>
         </div>
     )

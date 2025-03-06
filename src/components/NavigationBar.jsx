@@ -7,7 +7,7 @@ const Menus = [
     {path: "about", name:"About"},
     {path: "project", name:"Project"},
     {path: "experience", name:"Experience"},
-    // {path: "certificate", name:"Certificate"},
+    {path: "certificate", name:"Certificate"},
     {path: "contact", name:"Contact"},
 
 ];

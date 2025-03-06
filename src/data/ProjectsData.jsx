@@ -4,7 +4,7 @@ const ProjectData = () => {
         {
             project: "Website Pelayanan PNM",
             image: "/image/project-pnm.png",
-            desc: "Merupakan desain website untuk tempat berlangsungnya proses bisnis utama pada PNM.",
+            desc: "It is a website design for the place where the main business processes take place at PNM.",
             category:'uiux' ,
             link:'' ,
             key: 1

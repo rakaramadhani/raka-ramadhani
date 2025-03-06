@@ -9,12 +9,15 @@ import Landing from "../components/Landing";
 import About from "../components/About";
 import ParticlesBackground from "../components/ParticlesBG"
 import ReachMe from "../components/ReachMe";
+import Certificate from "../components/Certificate";
+import CertificateData from "../data/CertificateData";
 
 
 
 const HomePage = () => {
     const Projects = ProjectData();
     const Experiences = ExperienceData();
+    const Certificates = CertificateData();
     
     return (
         <div className="relative w-full h-screen">
@@ -49,6 +52,17 @@ const HomePage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
                         {Experiences.map((experience) => (
                             <Experience key={experience.key} {...experience} />
+                        ))}
+                    </div>
+                </section>
+
+
+                {/* Certification */}
+                <section id="certificate" className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12">
+                    <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">My Certification 👇</h1>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {Certificates.map((certificate) => (
+                            <Certificate key={certificate.key} {...certificate} />
                         ))}
                     </div>
                 </section>
