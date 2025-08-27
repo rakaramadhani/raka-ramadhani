@@ -2,24 +2,14 @@
 const ExperienceData = () => {
     return [
         {
-            job: "Data Engineer",
+            job: "Data Engineer & System Analyst",
             company: "DISKOMINFO Kota Bandung",
             image: "/image/experience-diskominfo.jpg",
             from: new Date(2024, 6, 1),
             to: new Date(2024, 8, 1),
             category: "internship",
-            desc: "I was responsible for identifying system requirements and creating comprehensive Software Requirement Specifications (SRS) and Business Requirement Specifications (BRS) for several applications at Diskominfo Kota Bandung.",
+            desc: "I was responsible for identifying system requirements and creating comprehensive Software Requirement Specifications (SRS) and Business Requirement Specifications (BRS) for several applications at Diskominfo Kota Bandung. My role involved both data engineering tasks and system analysis to ensure optimal application development.",
             key: 1
-        },
-        {
-            job: "System Analyst",
-            company: "DISKOMINFO Kota Bandung",
-            image: "/image/experience-diskominfo.jpg",
-            from: new Date(2024, 6, 1),
-            to: new Date(2024, 8, 1),
-            category: "internship",
-            desc: "I was responsible for identifying system requirements and creating comprehensive Software Requirement Specifications (SRS) and Business Requirement Specifications (BRS) for several applications at Diskominfo Kota Bandung.",
-            key: 4
         },
         {
             job: "Introduction to Programming and Logic Assistant Practicum",

@@ -1,5 +1,88 @@
 @import "tailwindcss";
 
+/* Enable dark mode with class strategy */
+@variant dark (.dark &);
+
+/* Dark mode configuration */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* Custom dark mode styles */
+html.dark {
+    background-color: #0f172a !important;
+    color: white !important;
+}
+
+.dark {
+    color: white !important;
+}
+
+.dark .bg-white {
+    background-color: #1e293b !important;
+}
+
+.dark .text-gray-900 {
+    color: #f1f5f9 !important;
+}
+
+.dark .text-gray-800 {
+    color: #f8fafc !important;
+}
+
+.dark .text-gray-700 {
+    color: #cbd5e1 !important;
+}
+
+.dark .text-gray-600 {
+    color: #94a3b8 !important;
+}
+
+.dark .text-blue-950 {
+    color: #f8fafc !important;
+}
+
+.dark .border-gray-200 {
+    border-color: #334155 !important;
+}
+
+.dark .border-gray-300 {
+    border-color: #475569 !important;
+}
+
+.dark .border-gray-400 {
+    border-color: #64748b !important;
+}
+
+/* Ensure consistent section backgrounds */
+section {
+    background-color: transparent !important;
+}
+
+.dark section {
+    background-color: transparent !important;
+}
+
+/* Main page container consistency */
+.relative.w-full.min-h-screen {
+    background-color: white;
+}
+
+.dark .relative.w-full.min-h-screen {
+    background-color: #0f172a !important;
+}
+
+/* Ensure light mode has white background */
+html:not(.dark) {
+    background-color: white !important;
+}
+
+html:not(.dark) body {
+    background-color: white !important;
+}
+
 @theme {    
     /* bgColor */
     --color-dark:#381C64;

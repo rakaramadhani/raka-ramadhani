@@ -47,21 +47,21 @@ const ReachMe = () => {
         //     alert ("Successfull")
         // }
     return(
-        <div className="grid md:grid-cols-2 gap-12 text-center w-full text-gray-800 mb-8 border-gray-300 rounded-2xl p-4 md:p-12 shadow-lg backdrop-blur-sm">
+        <div className="grid md:grid-cols-2 gap-12 text-center w-full text-gray-800 dark:text-white mb-8 border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-12 shadow-lg backdrop-blur-sm">
           {/* Contact Info */}
           <div className="space-y-6">
             <h3 className="font-bold text-left text-2xl">Get in Touch 👇</h3>
-            <p className="text-gray-700 text-left">
-              I'm always open to new opportunities and interesting projects. Let's discuss how we can work together!
+            <p className="text-gray-700 dark:text-gray-300 text-left">
+              I&apos;m always open to new opportunities and interesting projects. Let&apos;s discuss how we can work together!
             </p>
             <div className="space-y-4">
               {/* Email */}
-              <a className="text-gray-600 hover:text-primary flex items-center gap-4" href="mailto:rakaramadhani2001@gmail.com">
+              <a className="text-gray-600 dark:text-gray-400 hover:text-primary flex items-center gap-4" href="mailto:rakaramadhani2001@gmail.com">
                 <LucideMail strokeWidth={3} color="#8342EC"/>
                 rakaramadhani2001@gmail.com
               </a>
               {/* Location */}
-              <a className="text-gray-600 hover:text-primary flex items-center gap-4" href="https://maps.app.goo.gl/6qPuAdgLStLzZP9y8">
+              <a className="text-gray-600 dark:text-gray-400 hover:text-primary flex items-center gap-4" href="https://maps.app.goo.gl/6qPuAdgLStLzZP9y8">
                 <PinIcon strokeWidth={3}  color="#8342EC"/>
                 Bandung, West Java, Indonesia
               </a>
@@ -88,7 +88,7 @@ const ReachMe = () => {
                 type="text"
                 {...Form.register("name")}
                 placeholder="Your Name"
-                className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:ring-0 focus:ring-primary"
+                className="w-full px-4 py-3 border border-gray-400 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg focus:ring-0 focus:ring-primary"
                 name="name"
               />
             </div>
@@ -99,7 +99,7 @@ const ReachMe = () => {
                 type="email"
                 {...Form.register("email")}
                 placeholder="Your Email"
-                className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:ring-0 focus:ring-primary"
+                className="w-full px-4 py-3 border border-gray-400 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg focus:ring-0 focus:ring-primary"
                 name="email"
               />
               <span className="text-red-500 text-sm">{Form.formState.errors.email?.message}</span>
@@ -110,7 +110,7 @@ const ReachMe = () => {
               <textarea 
                 {...Form.register("text")}
                 placeholder="Your Message"
-                className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:ring-0 focus:ring-primary"
+                className="w-full px-4 py-3 border border-gray-400 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg focus:ring-0 focus:ring-primary"
                 name="message"
               />
             </div>
