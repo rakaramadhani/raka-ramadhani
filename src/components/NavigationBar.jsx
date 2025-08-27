@@ -82,7 +82,7 @@ const NavigationBar = () => {
         <motion.header 
             className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
                 scrolled 
-                    ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg' 
+                    ? 'bg-white dark:bg-slate-900 shadow-mg' 
                     : 'bg-white dark:bg-slate-900 shadow-md'
             }`}
             initial={{ y: -100 }}
