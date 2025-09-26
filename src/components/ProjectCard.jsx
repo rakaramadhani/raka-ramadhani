@@ -4,15 +4,32 @@ import { motion } from 'framer-motion';
 
 const categories = {
     uiux: 'UI/UX Design',
-    webapp: 'Web App',
+    fullstack: 'Fullstack',
+    frontend: 'Frontend',
+    backend: 'Backend',
     none: 'No Category'
 }
 
 const categoryColors = {
     uiux: 'text-label-blue',
-    webapp: 'text-label-orange',
+    fullstack: 'text-label-orange',
+    frontend: 'text-label-coral',
+    backend: 'text-label-blue',
     none: 'text-label-coral',
 };
+
+const techandtoolsColors = {
+    'Next.js': 'text-blue-900 bg-blue-200',
+    'Tailwind CSS': 'text-orange-900 bg-orange-200',
+    'Express.js': 'text-red-900 bg-red-200',
+    'PostgreSQL': 'text-red-900 bg-red-200',
+    'Laravel': 'text-blue-900 bg-blue-200',
+    'PHP': 'text-orange-900 bg-orange-200',
+    'JavaScript': 'text-red-900 bg-red-200',
+    'React': 'text-blue-900 bg-blue-200',
+    'TypeScript': 'text-orange-900 bg-orange-200',
+    'Figma': 'text-red-900 bg-red-200',
+}
 
 ProjectCard.propTypes = {
     image: PropTypes.string,
@@ -20,6 +37,7 @@ ProjectCard.propTypes = {
     desc: PropTypes.string,
     category: PropTypes.oneOf(Object.keys(categories)),
     link: PropTypes.string,
+    techandtools: PropTypes.arrayOf(PropTypes.string),
     demo: PropTypes.string
 };
 
@@ -28,6 +46,7 @@ ProjectCard.defaultProps = {
     project: "Undefined Project",
     desc: "-",
     category: categories.none,
+    techandtools: [],
 };
 
 function ProjectCard(props) {    
@@ -92,6 +111,18 @@ function ProjectCard(props) {
                 <p className='text-caption-mobile md:text-caption-desktop text-gray-600 dark:text-gray-300 text-justify line-clamp-3'>
                     {props.desc}
                 </p>
+                <motion.div className="flex flex-wrap gap-2 mt-3">
+                    {props.techandtools.map((tech, index) => (
+                        <motion.span
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                            viewport={{ once: true }}>
+                            <div className={`px-3 py-1 rounded-md text-xs font-medium ${techandtoolsColors[tech]}`}>{tech}</div>
+                        </motion.span>
+                    ))}
+                </motion.div>
 
                 <motion.div 
                     className="flex gap-4 mt-4"

@@ -3,7 +3,6 @@ import ProjectData from "../data/ProjectsData";
 import NavigationBar from "../components/NavigationBar";
 import Experience from "../components/Experience";
 import ExperienceData from "../data/ExperienceData";
-
 import Footer from "../components/Footer";
 import Landing from "../components/Landing";
 import About from "../components/About";
@@ -35,7 +34,7 @@ const HomePage = () => {
     };
 
     return (
-        <div className="relative w-full min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+        <div className="relative w-full min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300 ">
             <ScrollProgress />
             <ParticlesBackground/>
             <div className="flex flex-col gap-16 mt-16 md:mt-8 mx-auto md:mx-[96px] relative bg-transparent">
@@ -117,18 +116,32 @@ const HomePage = () => {
                     >
                         My Experience 👇
                     </motion.h1>
-                    <div className="grid grid-cols-1 gap-8">
-                        {Experiences.map((experience, index) => (
-                            <motion.div
-                                key={experience.key}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.2, duration: 0.6 }}
-                                viewport={{ once: true }}
-                            >
-                                <Experience {...experience} />
-                            </motion.div>
-                        ))}
+                    <div className="relative w-full max-w-6xl">
+                        <motion.div
+                            className="absolute left-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-indigo-500 transform -translate-x-1/2 rounded-full hidden md:block"
+                            initial={{ opacity: 0, scaleY: 0 }}
+                            whileInView={{ opacity: 1, scaleY: 1 }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}
+                            viewport={{ once: true }}
+                        ></motion.div>
+                        
+                        <div className="grid grid-cols-1 gap-8">
+                            {Experiences.map((experience, index) => (
+                                <motion.div
+                                    key={experience.key}
+                                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.2, duration: 0.6 }}
+                                    viewport={{ once: true }}
+                                    className={`flex items-center w-full ${
+                                        experience.key % 2 === 0 ? "justify-start" : "justify-end"
+                                    }`}
+                                >
+                                    <div className="absolute left-1/2 w-4 h-4 outline-4 dark:outline-[#0f172a] outline-white bg-indigo-500 rounded-full transform -translate-x-1/2 hidden md:block"></div>
+                                    <Experience {...experience} />
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </motion.section>
 
