@@ -9,18 +9,11 @@ const CertificateData = () => {
             key:1
         },
         {
-            image:"/image/certificate-fortinet-cybersecurity.png",
-            certification: "Fortinet Certified Fundamentals in Cybersecurity",
-            organizer: "Fortinet Training Institute",
-            issued: "2024",
-            key:2
-        },
-        {
             image:"/image/certificate-webdev-bnsp.JPG",
             certification: "Certificate of Competence - Programming and Software Development",
             organizer: "LSP Informatika",
             issued: "2024",
-            key:3
+            key:2
         },
         
     ]

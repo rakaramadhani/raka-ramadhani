@@ -47,7 +47,7 @@ const ReachMe = () => {
         //     alert ("Successfull")
         // }
     return(
-        <div className="grid md:grid-cols-2 gap-12 text-center w-full text-gray-800 dark:text-white mb-8 border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-12 shadow-lg backdrop-blur-sm">
+        <div className="grid md:grid-cols-2 gap-12 text-center w-full backdrop-blur-[2px] text-gray-800 dark:text-white mb-8 border-gray-300 bg-transparent border rounded-lg p-4 md:p-12 shadow-lg dark:border-gray-700 dark:bg-gray-800/50">
           {/* Contact Info */}
           <div className="space-y-6">
             <h3 className="font-bold text-left text-2xl">Get in Touch 👇</h3>

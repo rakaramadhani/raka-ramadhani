@@ -17,7 +17,6 @@ import {
   SiTailwindcss, 
   SiMysql, 
   SiPostgresql, 
-  SiVsco 
 } from "react-icons/si";
 
 const About = () => {
@@ -57,12 +56,10 @@ const About = () => {
         { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" size={48}/> },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500" size={48}/> },
         { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" size={48}/> },
-        { name: "Figma", icon: <FaFigma className="text-purple-500" size={48}/> }
     ];
 
     // Data tools dengan icon
     const tools = [
-        { name: "Visual Studio Code", icon: <SiVsco className="text-blue-600" size={48}/> },
         { name: "Git", icon: <FaGitAlt className="text-orange-600" size={48} /> },
         { name: "GitHub", icon: <FaGithub className="text-gray-800 dark:text-white" size={48}/> },
         { name: "Figma", icon: <FaFigma className="text-purple-500" size={48}/> }
@@ -207,7 +204,7 @@ const About = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <motion.h1 
-                className="font-bold text-lg md:text-xl text-center md:text-left text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
+                className="font-bold text-lg md:text-xl text-center text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
                 variants={itemVariants}
               >
                 Tech Stack
@@ -237,22 +234,30 @@ const About = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <motion.h1 
-                className="font-bold text-lg md:text-xl text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
+                className="font-bold text-lg md:text-xl text-center text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
                 variants={itemVariants}
               >
                 Tools
               </motion.h1>
               
-              <div className="flex flex-wrap gap-4 md:gap-8 justify-center">
+              {/* Grid Layout untuk Tools */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 place-items-center">
                 {tools.map((tool, index) => (
                   <motion.div 
                     key={tool.name} 
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-300 cursor-default"
+                    className="group flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-all duration-300 cursor-default w-full max-w-[120px]"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -1 }}
+                    whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ delay: index * 0.05 }}
+                    title={tool.name} // Tooltip saat hover
                   >
-                    <span className="text-lg flex-shrink-0">{tool.icon}</span>
+                    <span className="text-3xl md:text-4xl lg:text-5xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                      {tool.icon}
+                    </span>
+                    {/* Label nama tool - selalu visible */}
+                    <span className="text-xs md:text-sm font-medium text-blue-950 dark:text-gray-300 text-center leading-tight">
+                      {tool.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>

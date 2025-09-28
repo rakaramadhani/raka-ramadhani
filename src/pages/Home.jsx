@@ -37,14 +37,16 @@ const HomePage = () => {
         <div className="relative w-full min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300 ">
             <ScrollProgress />
             <ParticlesBackground/>
-            <div className="flex flex-col gap-16 mt-16 md:mt-8 mx-auto md:mx-[96px] relative bg-transparent">
+            <div className="flex flex-col gap-16 relative bg-transparent">
                 {/* Navbar */}
-                <NavigationBar />
+                <div className="mt-16 md:mt-8 mx-6 md:mx-24">
+                    <NavigationBar />
+                </div>
                 
                 {/* Home */}
                 <motion.section 
                     id="home" 
-                    className="scroll-mt-24 mx-8 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[216px] px-4 md:mt-32 md:px-12 h-auto md:h-full bg-transparent"
+                    className="scroll-mt-24 mx-6 md:mx-24 flex flex-col-reverse md:flex-row items-center justify-center gap-8 md:gap-[216px] md:mt-32 h-auto md:h-full bg-transparent"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -56,7 +58,7 @@ const HomePage = () => {
                 {/* About */}
                 <motion.section 
                     id="about" 
-                    className="scroll-mt-24 mx-4 flex flex-col md:flex-row items-center md:h-[760px] justify-center gap-8 md:gap-24 px-4 md:px-12 bg-transparent"
+                    className="scroll-mt-24 mx-6 md:mx-24 flex flex-col md:flex-row items-center md:h-[760px] justify-center gap-8 md:gap-24 bg-transparent"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -68,7 +70,7 @@ const HomePage = () => {
                 {/* Project */}
                 <motion.section 
                     id="project" 
-                    className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12 bg-transparent"
+                    className="scroll-mt-24 mx-6 md:mx-24 flex flex-col items-center justify-center text-center bg-transparent"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -83,7 +85,7 @@ const HomePage = () => {
                     >
                         My Project 👇
                     </motion.h1>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                         {Projects.map((project, index) => (
                             <motion.div
                                 key={project.key}
@@ -91,6 +93,7 @@ const HomePage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
                                 viewport={{ once: true }}
+                                className="flex justify-center"
                             >
                                 <ProjectCard {...project} />
                             </motion.div>
@@ -101,7 +104,7 @@ const HomePage = () => {
                 {/* Experience */}
                 <motion.section 
                     id="experience" 
-                    className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12 bg-transparent"
+                    className="scroll-mt-24 mx-6 md:mx-24 flex flex-col items-center justify-center text-center bg-transparent"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -148,7 +151,7 @@ const HomePage = () => {
                 {/* Certification */}
                 <motion.section 
                     id="certificate" 
-                    className="scroll-mt-24 flex flex-col items-center justify-center text-center px-4 md:px-12 bg-transparent"
+                    className="scroll-mt-24 mx-6 md:mx-24 flex flex-col items-center justify-center text-center bg-transparent"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -163,25 +166,26 @@ const HomePage = () => {
                     >
                         My Certification 👇
                     </motion.h1>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {Certificates.map((certificate, index) => (
-                        <motion.div
-                            key={certificate.key}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            viewport={{ once: true }}
-                        >
-                            <Certificate {...certificate} />
-                        </motion.div>
-                    ))}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                        {Certificates.map((certificate, index) => (
+                            <motion.div
+                                key={certificate.key}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
+                                viewport={{ once: true }}
+                                className="flex justify-center"
+                            >
+                                <Certificate {...certificate} />
+                            </motion.div>
+                        ))}
                     </div>
                 </motion.section>
 
                 {/* Contact Form */}
                 <motion.section 
                     id="contact" 
-                    className="scroll-mt-24 flex flex-col items-center md:items-start justify-center text-center md:text-left px-4 md:px-12 bg-transparent"
+                    className="scroll-mt-24 mx-6 md:mx-24 flex flex-col items-center md:items-start justify-center text-center md:text-left bg-transparent"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"

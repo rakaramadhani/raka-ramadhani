@@ -17,7 +17,7 @@ const categoryColors = {
 
 const Experience = (props) => {
     return (
-        <div className={`w-full max-w-md mx-8`}>
+        <div className={`w-full max-w-md`}>
                 <div className="flex flex-col bg-white dark:bg-slate-800 border rounded-2xl shadow-lg border-gray-200 dark:border-slate-700 transition-all duration-300 ease-in-out p-4 hover:shadow-xl hover:scale-105">
                     {/* Image */}
                     <div className="w-full mb-4">
