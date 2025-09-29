@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ComputerIcon, MapPin, StarIcon } from "lucide-react";
+import CertificateData from "../data/CertificateData";
 // Import react-icons untuk teknologi dan tools
 import { 
   FaReact, 
@@ -7,10 +8,8 @@ import {
   FaJs, 
   FaPython, 
   FaPhp, 
-  FaBootstrap, 
-  FaFigma, 
-  FaGitAlt, 
-  FaGithub 
+  FaBootstrap,
+  FaCertificate, 
 } from "react-icons/fa";
 import { 
   SiNextdotjs, 
@@ -19,9 +18,10 @@ import {
   SiPostgresql, 
 } from "react-icons/si";
 
+
 const About = () => {
     const aboutMe = "I am a results-driven individual passionate about creativity, continuous learning, and crafting seamless user experiences. With a strong foundation in UI/UX design and front-end development—proficient in HTML, CSS, JavaScript, and PHP—I thrive in building intuitive and visually appealing digital solutions.";
-    
+    const certificates = CertificateData();
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -46,34 +46,20 @@ const About = () => {
 
     // Data skills dengan icon
     const skills = [
-        { name: "React", icon: <FaReact className="text-blue-500" size={48}/> },
-        { name: "Laravel", icon: <FaLaravel className="text-red-500" size={48}/> },
-        { name: "JavaScript", icon: <FaJs className="text-yellow-500" size={48}/> },
-        { name: "Python", icon: <FaPython className="text-blue-600" size={48}/> },
-        { name: "PHP", icon: <FaPhp className="text-purple-600" size={48}/> },
-        { name: "MySQL", icon: <SiMysql className="text-blue-600" size={48}/> },
-        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-800" size={48}/> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" size={48}/> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500" size={48}/> },
-        { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" size={48}/> },
-    ];
-
-    // Data tools dengan icon
-    const tools = [
-        { name: "Git", icon: <FaGitAlt className="text-orange-600" size={48} /> },
-        { name: "GitHub", icon: <FaGithub className="text-gray-800 dark:text-white" size={48}/> },
-        { name: "Figma", icon: <FaFigma className="text-purple-500" size={48}/> }
+        { name: "React", icon: <FaReact className="text-blue-500" size={64}/> },
+        { name: "Laravel", icon: <FaLaravel className="text-red-500" size={64}/> },
+        { name: "JavaScript", icon: <FaJs className="text-yellow-500" size={64}/> },
+        { name: "Python", icon: <FaPython className="text-blue-600" size={64}/> },
+        { name: "PHP", icon: <FaPhp className="text-purple-600" size={64}/> },
+        { name: "MySQL", icon: <SiMysql className="text-blue-600" size={64}/> },
+        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-800" size={64}/> },
+        { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" size={64}/> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500" size={64}/> },
+        { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" size={64}/> },
     ];
 
     return(
         <div className="w-full space-y-6 lg:space-y-8" >
-          <motion.h1 className="font-bold text-h2-mobile md:text-xl text-center  text-blue-950 dark:text-white mb-2 uppercase">
-            About Me
-          </motion.h1>
-          <motion.h2 className="text-body-mobile md:text-body-desktop text-blue-950 dark:text-gray-300">
-          Driven by curiosity and innovation, I bring fresh perspectives to technology and business challenges.
-          </motion.h2>
-          
           {/* Section Atas - Background, Education, Quick Facts */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
             {/* Background */}
@@ -225,7 +211,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Tools */}
+            {/* Certificates */}
             <motion.div 
               className="p-4 md:p-6 lg:p-8 border rounded-lg shadow-sm backdrop-blur-[2px] dark:border-gray-700 dark:bg-gray-800/50"
               variants={containerVariants}
@@ -237,27 +223,42 @@ const About = () => {
                 className="font-bold text-lg md:text-xl text-center text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
                 variants={itemVariants}
               >
-                Tools
+                Training and Certification
               </motion.h1>
               
-              {/* Grid Layout untuk Tools */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 place-items-center">
-                {tools.map((tool, index) => (
+              {/* Layout untuk Certificates */}
+              <div className="space-y-4">
+                {certificates.map((certificate, index) => (
                   <motion.div 
-                    key={tool.name} 
-                    className="group flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-all duration-300 cursor-default w-full max-w-[120px]"
+                    key={certificate.key} 
+                    className="group p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-all duration-300 cursor-default"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    transition={{ delay: index * 0.05 }}
-                    title={tool.name} // Tooltip saat hover
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    <span className="text-3xl md:text-4xl lg:text-5xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
-                      {tool.icon}
-                    </span>
-                    {/* Label nama tool - selalu visible */}
-                    <span className="text-xs md:text-sm font-medium text-blue-950 dark:text-gray-300 text-center leading-tight">
-                      {tool.name}
-                    </span>
+                    <div className="flex items-start gap-3">
+                      <motion.div 
+                        className="flex-shrink-0 p-2 rounded-full bg-blue-100 dark:bg-blue-900/30"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <FaCertificate className="text-blue-600 dark:text-blue-400" size={24}/>
+                      </motion.div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm md:text-base font-semibold text-blue-950 dark:text-white mb-1 leading-tight">
+                          {certificate.certification}
+                        </h3>
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                            {certificate.organizer}
+                          </p>
+                          <span className="text-xs md:text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-full w-fit">
+                            {certificate.issued}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>

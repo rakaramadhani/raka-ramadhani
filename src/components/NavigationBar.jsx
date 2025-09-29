@@ -9,7 +9,7 @@ const Menus = [
     {path: "about", name:"About"},
     {path: "project", name:"Project"},
     {path: "experience", name:"Experience"},
-    {path: "certificate", name:"Certificate"},
+    // {path: "certificate", name:"Certificate"},
     {path: "contact", name:"Contact"},
 
 ];
@@ -52,7 +52,7 @@ const NavigationBar = () => {
 
     const menuStyle = "text-xl font-medium block py-2 px-3 rounded-sm cursor-pointer transition duration-300";
     const activeStyle = "text-blue-600 font-bold";
-                        const inActiveStyle = "text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400";
+    const inActiveStyle = "text-gray-900 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400";
 
     const menuVariants = {
         closed: {
