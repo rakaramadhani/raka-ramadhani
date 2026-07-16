@@ -1,10 +1,12 @@
 import ProjectCard from "../components/ProjectCard";
+// import Certificate from "../components/Certificate";
 import ProjectData from "../data/ProjectsData";
+// import CertificateData from "../data/CertificateData";
 import NavigationBar from "../components/NavigationBar";
 import Experience from "../components/Experience";
 import ExperienceData from "../data/ExperienceData";
 import Footer from "../components/Footer";
-import Landing from "../components/Landing";
+import Landing from "../components/Landing";    
 import About from "../components/About";
 import ParticlesBackground from "../components/ParticlesBG"
 import ReachMe from "../components/ReachMe";
@@ -12,12 +14,16 @@ import ReachMe from "../components/ReachMe";
 import ScrollProgress from "../components/ScrollProgress";
 import BackToTop from "../components/BackToTop";
 import { motion } from "framer-motion";
+import { OrganizationalData } from "../data/OrganizationalExp";
+import OrganizationalExperience from "../components/OrganizationalExp";
 
 
 
 const HomePage = () => {
     const Projects = ProjectData();
+    const Organizational = OrganizationalData();
     const Experiences = ExperienceData();
+    // const Certificates = CertificateData();
     
     const sectionVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -139,7 +145,7 @@ const HomePage = () => {
                         ))}
                     </div>
                 </motion.section>
-                
+
                 {/* Section Divider */}
                 <div className="w-full flex justify-center my-8">
                     <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
@@ -210,6 +216,55 @@ const HomePage = () => {
                     </div>
                 </motion.section>
                 
+                {/* Section Divider */}
+                <div className="w-full flex justify-center my-8">
+                    <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+                </div>
+
+                {/* Organizational Section */}
+                <motion.section 
+                    id="project" 
+                    className="scroll-mt-24 px-6 mx-auto max-w-screen-xl flex flex-col items-center justify-center text-center py-16 md:py-24 bg-transparent"
+                    variants={sectionVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <motion.div className="text-center mb-12">
+                        <motion.h1 
+                            className="text-4xl font-bold text-gray-800 dark:text-white mb-4"
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            viewport={{ once: true }}
+                        >
+                            Organizational Experience
+                        </motion.h1>
+                        <motion.p 
+                            className="text-xl font-light text-gray-600 dark:text-gray-400"
+                            initial={{ opacity: 0, y: -20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            Some of my recent work
+                        </motion.p>
+                    </motion.div>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
+                        {Organizational.map((project, index) => (
+                            <motion.div
+                                key={project.key}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
+                                viewport={{ once: true }}
+                                className="flex justify-center"
+                            >
+                            <OrganizationalExperience {...project} />
+                        </motion.div>
+                        ))}
+                    </div>
+                </motion.section>
                 {/* Section Divider */}
                 <div className="w-full flex justify-center my-8">
                     <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
