@@ -2,72 +2,80 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 OrganizationalExperience.propTypes = {
-    image: PropTypes.string,
-    position: PropTypes.string,
+    image:        PropTypes.string,
+    position:     PropTypes.string,
     organization: PropTypes.string,
-    location: PropTypes.string,
-    category: PropTypes.string,
-    desc: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+    location:     PropTypes.string,
+    category:     PropTypes.string,
+    desc:         PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 };
 
 OrganizationalExperience.defaultProps = {
-    image: "/image/Group3.png",
-    position: "Undefined position",
-    desc: "-",
-    category: "-",
+    image:    '/image/Group3.png',
+    position: 'Undefined Position',
+    desc:     '-',
+    category: '-',
 };
 
-function OrganizationalExperience(props) {    
+function OrganizationalExperience(props) {
     return (
-        <motion.div 
-            className="h-full w-full max-w-sm bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-xl group overflow-hidden transition-all duration-300"
-            whileHover={{ y: -2, scale: 1.01 }}
-            transition={{ duration: 0.2, type: "spring", stiffness: 400 }}
+        <motion.div
+            className="h-full w-full max-w-sm
+                bg-[#FFFFFF] dark:bg-[#1A1A1A]
+                border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
+                shadow-[4px_4px_0_0_#000080]
+                overflow-hidden group
+                transition-all duration-150"
+            whileHover={{ x: -2, y: -2, boxShadow: '6px 6px 0 0 #000080' }}
+            transition={{ duration: 0.15, type: 'tween' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
         >
-            {/* Bento Card Image Section */}
-            <div className="relative overflow-hidden h-40 sm:h-48">
+            {/* Image */}
+            <div className="relative overflow-hidden h-40 sm:h-48 border-b-2 border-[#0F0F0F]">
                 <motion.img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     src={props.image}
-                    alt={`${props.position} position thumbnail`}
+                    alt={`${props.position} thumbnail`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+                <div className="absolute inset-0 bg-[#0F0F0F]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            
-            {/* Bento Card Content Section */}
-            <div className="p-4 sm:p-5 space-y-3 flex flex-col h-[calc(100%-10rem)] sm:h-[calc(100%-12rem)]">
+
+            {/* Content */}
+            <div className="p-4 sm:p-5 space-y-3 flex flex-col">
                 {/* Category Badge */}
-                <motion.span 
-                    className={`inline-block w-fit px-2 py-1 rounded-md text-xs font-medium uppercase tracking-wide ${props.category} bg-gray-50 dark:bg-slate-700/50`}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
+                <span
+                    className="inline-block w-fit px-2 py-0.5
+                        text-[10px] font-black uppercase tracking-widest
+                        bg-[#000080] text-white border border-[#0F0F0F]"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                     {props.category}
-                </motion.span>
-                
-                {/* position Title */}
-                <motion.h3 
-                    className="text-base sm:text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors duration-300 leading-tight"
-                    whileHover={{ x: 2 }}
-                    transition={{ duration: 0.2 }}
+                </span>
+
+                {/* Position Title */}
+                <h3
+                    className="text-base sm:text-lg font-black text-[#0F0F0F] dark:text-[#FAFAFA]
+                        group-hover:text-[#000080] transition-colors duration-200 leading-tight uppercase"
+                    style={{ fontFamily: "'Archivo Black', sans-serif" }}
                 >
                     {props.position}
-                </motion.h3>
-                
+                </h3>
+
+                {/* Organization */}
+                {props.organization && (
+                    <p className="text-xs font-bold text-[#000080] uppercase tracking-wider"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                        {props.organization}
+                    </p>
+                )}
+
                 {/* Description */}
-                <div className='flex-grow text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed'>
-                    <motion.p 
-                        className="line-clamp-4 text-justify leading-relaxed"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                        viewport={{ once: true }}
-                    >
+                <div className="text-xs sm:text-sm text-[#4A4A4A] dark:text-[#A0A0A0] leading-relaxed">
+                    <p className="line-clamp-4 text-justify leading-[1.65]"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                         {Array.isArray(props.desc) ? props.desc.join('. ') : props.desc}
-                    </motion.p>
+                    </p>
                 </div>
             </div>
         </motion.div>

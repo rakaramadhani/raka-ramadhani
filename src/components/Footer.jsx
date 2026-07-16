@@ -1,41 +1,39 @@
-
 import { motion } from 'framer-motion';
 
 export default function Footer() {
-    const footerVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        }
-    };
-
     return (
-        <motion.footer 
-            className="bg-transparent border-t border-gray-200 dark:border-slate-700 text-blue-950 dark:text-white py-8 mt-16"
-            variants={footerVariants}
-            initial="hidden"
-            whileInView="visible"
+        <motion.footer
+            className="border-t-4 border-[#0F0F0F] dark:border-[#FAFAFA]
+                bg-[#0F0F0F] dark:bg-[#0F0F0F]
+                text-[#FAFAFA] py-8 mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.5 }}
         >
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-center px-6">
-                {/* Nama & Copyright */}
-                <motion.div 
-                    className="text-center md:text-left"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 max-w-screen-xl gap-4">
+                {/* Name */}
+                <h2
+                    className="text-xl font-black uppercase tracking-tight text-[#FAFAFA]"
+                    style={{ fontFamily: "'Archivo Black', sans-serif" }}
                 >
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                        Raka Ramadhani
-                    </h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                        © 2025 All rights reserved. Built with ❤️ using React & Tailwind CSS.
-                    </p>
-                </motion.div>
+                    Raka<span className="text-[#000080]" style={{ WebkitTextStroke: "1px #4444AA" }}>Ramadhani</span>
+                </h2>
+
+                {/* Copyright */}
+                <p
+                    className="text-xs font-medium text-[#A0A0A0] uppercase tracking-widest text-center"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                    © 2025 All rights reserved — Built with React &amp; Tailwind CSS
+                </p>
+
+                {/* Accent block */}
+                <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-[#000080]" />
+                    <div className="w-3 h-3 bg-[#FAFAFA]" />
+                    <div className="w-3 h-3 border-2 border-[#FAFAFA]" />
+                </div>
             </div>
         </motion.footer>
     );

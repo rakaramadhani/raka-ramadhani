@@ -1,33 +1,24 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 const ScrollProgress = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
-        const updateScrollProgress = () => {
-            const currentProgress = window.scrollY;
-            const scrollHeight = document.body.scrollHeight - window.innerHeight;
-            
-            if (scrollHeight > 0) {
-                setScrollProgress((currentProgress / scrollHeight) * 100);
-            }
+        const update = () => {
+            const height = document.body.scrollHeight - window.innerHeight;
+            if (height > 0) setScrollProgress((window.scrollY / height) * 100);
         };
-
-        window.addEventListener('scroll', updateScrollProgress);
-        
-        return () => window.removeEventListener('scroll', updateScrollProgress);
+        window.addEventListener('scroll', update);
+        return () => window.removeEventListener('scroll', update);
     }, []);
 
     return (
-        <motion.div
-            className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary-light to-primary-dark dark:from-blue-400 dark:via-purple-400 dark:to-indigo-500 z-50 origin-left"
+        <div
+            className="fixed top-0 left-0 right-0 h-1 bg-[#000080] z-50 origin-left"
             style={{
-                scaleX: scrollProgress / 100,
+                transform: `scaleX(${scrollProgress / 100})`,
+                transition: 'transform 0.1s linear',
             }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: scrollProgress / 100 }}
-            transition={{ duration: 0.1 }}
         />
     );
 };

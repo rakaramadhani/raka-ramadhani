@@ -1,271 +1,223 @@
 import { motion } from "framer-motion";
 import { ComputerIcon, MapPin, StarIcon } from "lucide-react";
 import CertificateData from "../data/CertificateData";
-// Import react-icons untuk teknologi dan tools
-import { 
-  FaReact, 
-  FaLaravel, 
-  FaJs, 
-  FaPython, 
-  FaPhp, 
-  FaBootstrap,
-  FaCertificate, 
+import {
+    FaReact,
+    FaLaravel,
+    FaJs,
+    FaPython,
+    FaPhp,
+    FaCertificate,
 } from "react-icons/fa";
-import { 
-  SiNextdotjs, 
-  SiTailwindcss, 
-  SiMysql, 
-  SiPostgresql, 
+import {
+    SiNextdotjs,
+    SiTailwindcss,
+    SiMysql,
+    SiPostgresql,
 } from "react-icons/si";
 
+/* ── Animation variants ─────────────────────────────────────── */
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+    },
+};
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+};
+
+/* ── Reusable card wrapper ──────────────────────────────────── */
+const NeoCard = ({ children, className = "" }) => (
+    <motion.div
+        className={`bg-[#FFFFFF] dark:bg-[#1A1A1A]
+            border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
+            shadow-[4px_4px_0_0_#000080]
+            p-4 md:p-6 lg:p-8
+            transition-all duration-150 ${className}`}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+        whileHover={{ x: -2, y: -2, boxShadow: "6px 6px 0 0 #000080" }}
+        transition={{ duration: 0.15 }}
+    >
+        {children}
+    </motion.div>
+);
+
+/* ── Section label ──────────────────────────────────────────── */
+const SectionLabel = ({ children }) => (
+    <motion.h2
+        variants={itemVariants}
+        className="font-black uppercase tracking-widest text-sm text-[#000080]
+            border-b-2 border-[#000080] pb-1 mb-5 w-fit"
+        style={{ fontFamily: "'Archivo Black', sans-serif" }}
+    >
+        {children}
+    </motion.h2>
+);
 
 const About = () => {
-    const aboutMe = "I am a results-driven individual passionate about creativity, continuous learning, and crafting seamless user experiences. With a strong foundation in UI/UX design and front-end development—proficient in HTML, CSS, JavaScript, and PHP—I thrive in building intuitive and visually appealing digital solutions.";
+    const aboutMe =
+        "I don't just write code; I engineer business solutions. With a strong foundation in Information Systems and professional experience in banking and government sectors, I transform complex requirements into intuitive, reliable, and efficient applications. I thrive at the intersection of system analysis and front-end architecture.";
+
     const certificates = CertificateData();
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1,
-            },
-        },
-    };
 
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
-
-    // Data skills dengan icon
     const skills = [
-        { name: "React", icon: <FaReact className="text-blue-500" size={64}/> },
-        { name: "Laravel", icon: <FaLaravel className="text-red-500" size={64}/> },
-        { name: "JavaScript", icon: <FaJs className="text-yellow-500" size={64}/> },
-        { name: "Python", icon: <FaPython className="text-blue-600" size={64}/> },
-        { name: "PHP", icon: <FaPhp className="text-purple-600" size={64}/> },
-        { name: "MySQL", icon: <SiMysql className="text-blue-600" size={64}/> },
-        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-800" size={64}/> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" size={64}/> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500" size={64}/> },
-        { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" size={64}/> },
+        { name: "React", icon: <FaReact size={48} color="#61DAFB" /> },
+        { name: "Laravel", icon: <FaLaravel size={48} color="#FF2D20" /> },
+        { name: "JavaScript", icon: <FaJs size={48} color="#F7DF1E" /> },
+        { name: "Python", icon: <FaPython size={48} color="#3776AB" /> },
+        { name: "PHP", icon: <FaPhp size={48} color="#777BB4" /> },
+        { name: "MySQL", icon: <SiMysql size={48} color="#4479A1" /> },
+        { name: "PostgreSQL", icon: <SiPostgresql size={48} color="#336791" /> },
+        { name: "Next.js", icon: <SiNextdotjs size={48} className="text-[#0F0F0F] dark:text-[#FAFAFA]" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss size={48} color="#06B6D4" /> },
     ];
 
-    return(
-        <div className="w-full space-y-6 lg:space-y-8" >
-          {/* Section Atas - Background, Education, Quick Facts */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-            {/* Background */}
-            <motion.div 
-              className="lg:col-span-1 p-4 md:p-6 lg:p-8 border rounded-lg shadow-sm backdrop-blur-[2px] h-fit md:h-full dark:border-gray-700 dark:bg-gray-800/50"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div className="w-full" variants={containerVariants}>
-                <motion.h1 
-                  className="font-bold text-lg md:text-xl text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
-                  variants={itemVariants}
-                >
-                  Background
-                </motion.h1>
-                
-                <motion.p 
-                  className="text-sm md:text-base lg:text-lg font-light text-blue-950 dark:text-gray-300 leading-relaxed"
-                  variants={itemVariants}
-                >
-                  {aboutMe}
-                </motion.p>
-              </motion.div>
-            </motion.div>
+    return (
+        <div className="w-full space-y-5 lg:space-y-6">
 
-            {/* Education */}
-            <motion.div 
-              className="lg:col-span-1 p-4 md:p-6 lg:p-8 border rounded-lg shadow-sm backdrop-blur-[2px] h-fit md:h-full dark:border-gray-700 dark:bg-gray-800/50"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div className="w-full" variants={containerVariants}>
-                <motion.h1 
-                  className="font-bold text-lg md:text-xl text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
-                  variants={itemVariants}
-                >
-                  Education
-                </motion.h1>
-                
-                <motion.p 
-                  className="text-sm md:text-base lg:text-lg font-bold text-blue-950 dark:text-gray-300 leading-relaxed mb-2"
-                  variants={itemVariants}
-                >
-                  Bachelor of Information System
-                </motion.p>
-                
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-2 mb-3">
-                  <motion.p 
-                    className="text-xs md:text-sm lg:text-base text-blue-950 dark:text-gray-300"
-                    variants={itemVariants}
-                  >
-                    GPA: 3.87 / 4.00
-                  </motion.p>
-                  <motion.p 
-                    className="text-xs md:text-sm lg:text-base text-blue-950 dark:text-gray-300"
-                    variants={itemVariants}
-                  >
-                    Graduated at 2025
-                  </motion.p>
-                </div>
-                
-                <motion.p 
-                  className="text-xs md:text-sm lg:text-base font-light text-blue-950 dark:text-gray-300 leading-relaxed"
-                  variants={itemVariants}
-                >
-                  Specialized in software development, database management, and business analysis with focus on modern web technologies.
-                </motion.p>
-              </motion.div>
-            </motion.div>
+            {/* ── Row 1: Bio · Education · Quick Facts ── */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
-            {/* Quick Facts */}
-            <motion.div 
-              className="lg:col-span-1 p-4 md:p-6 lg:p-8 border rounded-lg shadow-sm backdrop-blur-[2px] h-fit md:h-full dark:border-gray-700 dark:bg-gray-800/50"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.div className="w-full" variants={containerVariants}>
-                <motion.h1 
-                  className="font-bold text-lg md:text-xl text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
-                  variants={itemVariants}
-                >
-                  Quick Facts About Me! 🫵
-                </motion.h1>
-                
-                <div className="flex flex-col gap-3 lg:gap-4">
-                  <motion.div 
-                    className="flex items-center gap-3 text-xs md:text-sm lg:text-base font-light text-blue-950 dark:text-gray-300"
-                    variants={itemVariants}
-                  >
-                    <ComputerIcon className="w-5 h-5 flex-shrink-0" strokeWidth={0} fill="#8342ED"/>
-                    <p>Information System Graduate</p>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="flex items-center gap-3 text-xs md:text-sm lg:text-base font-light text-blue-950 dark:text-gray-300"
-                    variants={itemVariants}
-                  >
-                    <MapPin className="w-5 h-5 flex-shrink-0" strokeWidth={2} color="#8342ED"/>
-                    <p>Purworejo, Central Java, Indonesia</p>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="flex items-center gap-3 text-xs md:text-sm lg:text-base font-light text-blue-950 dark:text-gray-300"
-                    variants={itemVariants}
-                  >
-                    <StarIcon className="w-5 h-5 flex-shrink-0" strokeWidth={0} fill="#8342ED"/>
-                    <p>BNSP Certified Web Developer</p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
+                {/* Bio */}
+                <NeoCard className="lg:col-span-1">
+                    <SectionLabel>Background</SectionLabel>
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-sm md:text-base leading-[1.75] text-[#0F0F0F] dark:text-[#FAFAFA]"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                        {aboutMe}
+                    </motion.p>
+                </NeoCard>
 
-          {/* Section Bawah - Skills dan Tools */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-            {/* Technical Skills */}
-            <motion.div 
-              className="p-4 md:p-6 lg:p-8 border rounded-lg shadow-sm backdrop-blur-[2px] dark:border-gray-700 dark:bg-gray-800/50"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.h1 
-                className="font-bold text-lg md:text-xl text-center text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
-                variants={itemVariants}
-              >
-                Tech Stack
-              </motion.h1>
-              
-              <div className="flex flex-wrap gap-4 md:gap-8 justify-center">
-                {skills.map((skill, index) => (
-                  <motion.div 
-                    key={skill.name} 
-                    className="flex items-center gap-3 rounded-lg  text-sm md:text-base font-medium  transition-all duration-300 cursor-default"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -1 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    <span className="text-lg flex-shrink-0">{skill.icon}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Certificates */}
-            <motion.div 
-              className="p-4 md:p-6 lg:p-8 border rounded-lg shadow-sm backdrop-blur-[2px] dark:border-gray-700 dark:bg-gray-800/50"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.h1 
-                className="font-bold text-lg md:text-xl text-center text-blue-950 dark:text-white mb-4 lg:mb-6 uppercase"
-                variants={itemVariants}
-              >
-                Training and Certification
-              </motion.h1>
-              
-              {/* Layout untuk Certificates */}
-              <div className="space-y-4">
-                {certificates.map((certificate, index) => (
-                  <motion.div 
-                    key={certificate.key} 
-                    className="group p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-all duration-300 cursor-default"
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <motion.div 
-                        className="flex-shrink-0 p-2 rounded-full bg-blue-100 dark:bg-blue-900/30"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <FaCertificate className="text-blue-600 dark:text-blue-400" size={24}/>
-                      </motion.div>
-                      
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm md:text-base font-semibold text-blue-950 dark:text-white mb-1 leading-tight">
-                          {certificate.certification}
-                        </h3>
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                          <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
-                            {certificate.organizer}
-                          </p>
-                          <span className="text-xs md:text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-full w-fit">
-                            {certificate.issued}
-                          </span>
-                        </div>
-                      </div>
+                {/* Education */}
+                <NeoCard className="lg:col-span-1">
+                    <SectionLabel>Education</SectionLabel>
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-base font-bold text-[#0F0F0F] dark:text-[#FAFAFA] mb-1"
+                        style={{ fontFamily: "'Archivo Black', sans-serif" }}
+                    >
+                        Bachelor of Information System
+                    </motion.p>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1 mb-3">
+                        <motion.p variants={itemVariants}
+                            className="text-xs text-[#000080] font-semibold uppercase tracking-wider">
+                            GPA: 3.87 / 4.00
+                        </motion.p>
+                        <motion.p variants={itemVariants}
+                            className="text-xs text-[#4A4A4A] dark:text-[#A0A0A0]">
+                            Graduated 2025
+                        </motion.p>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-xs md:text-sm leading-[1.7] text-[#4A4A4A] dark:text-[#A0A0A0]"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                        Specialized in software development, database management, and
+                        business analysis with focus on modern web technologies.
+                    </motion.p>
+                </NeoCard>
+
+                {/* Quick Facts */}
+                <NeoCard className="lg:col-span-1">
+                    <SectionLabel>Quick Facts</SectionLabel>
+                    <div className="flex flex-col gap-4">
+                        {[
+                            { icon: <ComputerIcon className="w-5 h-5 flex-shrink-0" strokeWidth={0} fill="#000080" />, text: "Information System Graduate" },
+                            { icon: <MapPin className="w-5 h-5 flex-shrink-0" strokeWidth={2} color="#000080" />, text: "Purworejo, Central Java, Indonesia" },
+                            { icon: <StarIcon className="w-5 h-5 flex-shrink-0" strokeWidth={0} fill="#000080" />, text: "BNSP Certified Web Developer" },
+                        ].map(({ icon, text }, i) => (
+                            <motion.div
+                                key={i}
+                                variants={itemVariants}
+                                className="flex items-center gap-3 text-sm text-[#0F0F0F] dark:text-[#FAFAFA]"
+                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                            >
+                                {icon}
+                                <p>{text}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </NeoCard>
+            </div>
+
+            {/* ── Row 2: Tech Stack · Certifications ── */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+                {/* Tech Stack */}
+                <NeoCard>
+                    <SectionLabel>Tech Stack</SectionLabel>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        {skills.map((skill, index) => (
+                            <motion.div
+                                key={skill.name}
+                                variants={itemVariants}
+                                className="flex flex-col items-center gap-2 p-3
+                                    border-2 border-[#0F0F0F] dark:border-[#FAFAFA]
+                                    shadow-[2px_2px_0_0_#000080]
+                                    transition-all duration-150 cursor-default"
+                                whileHover={{ x: -1, y: -1, boxShadow: "4px 4px 0 0 #000080" }}
+                                transition={{ delay: index * 0.04 }}
+                            >
+                                <span>{skill.icon}</span>
+                                <span className="text-[10px] font-bold uppercase tracking-wider
+                                    text-[#0F0F0F] dark:text-[#FAFAFA]"
+                                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                    {skill.name}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </NeoCard>
+
+                {/* Certifications */}
+                <NeoCard>
+                    <SectionLabel>Training &amp; Certification</SectionLabel>
+                    <div className="space-y-3">
+                        {certificates.map((cert, index) => (
+                            <motion.div
+                                key={cert.key}
+                                variants={itemVariants}
+                                className="flex items-start gap-3 p-3
+                                    border-2 border-[#0F0F0F] dark:border-[#FAFAFA]
+                                    border-l-4 border-l-[#000080]
+                                    shadow-[2px_2px_0_0_#0F0F0F]
+                                    transition-all duration-150 cursor-default"
+                                whileHover={{ x: -1, y: -1, boxShadow: "4px 4px 0 0 #0F0F0F" }}
+                                transition={{ delay: index * 0.08 }}
+                            >
+                                <div className="flex-shrink-0 p-1.5 border-2 border-[#000080] bg-[#000080]">
+                                    <FaCertificate className="text-white" size={18} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="text-sm font-bold text-[#0F0F0F] dark:text-[#FAFAFA] mb-0.5 leading-tight"
+                                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                        {cert.certification}
+                                    </h3>
+                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                                        <p className="text-xs text-[#4A4A4A] dark:text-[#A0A0A0]">
+                                            {cert.organizer}
+                                        </p>
+                                        <span className="text-xs font-bold text-[#000080] border border-[#000080] px-1.5 py-0.5 w-fit uppercase tracking-wider">
+                                            {cert.issued}
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </NeoCard>
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default About;

@@ -1,134 +1,194 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* Enable dark mode with class strategy */
 @variant dark (.dark &);
 
-/* Dark mode configuration */
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-    }
+/* ─── RetroUI Neo-Brutalist Theme (Navy Edition) ─── */
+
+@theme inline {
+  /* Fonts */
+  --font-head: "Archivo Black", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
+
+  /* Border radius — strictly zero (neo-brutalist) */
+  --radius: 0px;
+
+  /* Hard offset shadows (the neo-brutalist signature) */
+  --shadow-xs:  1px 1px 0 0 var(--border);
+  --shadow-sm:  2px 2px 0 0 var(--border);
+  --shadow:     3px 3px 0 0 var(--border);
+  --shadow-md:  4px 4px 0 0 var(--border);
+  --shadow-lg:  6px 6px 0 0 var(--border);
+  --shadow-xl:  10px 10px 0 1px var(--border);
+  --shadow-2xl: 16px 16px 0 1px var(--border);
+
+  /* Color mappings */
+  --color-background:          var(--background);
+  --color-foreground:          var(--foreground);
+  --color-card:                var(--card);
+  --color-card-foreground:     var(--card-foreground);
+  --color-primary:             var(--primary);
+  --color-primary-foreground:  var(--primary-foreground);
+  --color-primary-hover:       var(--primary-hover);
+  --color-secondary:           var(--secondary);
+  --color-secondary-foreground:var(--secondary-foreground);
+  --color-muted:               var(--muted);
+  --color-muted-foreground:    var(--muted-foreground);
+  --color-accent:              var(--accent);
+  --color-accent-foreground:   var(--accent-foreground);
+  --color-destructive:         var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border:              var(--border);
+  --color-input:               var(--input);
+  --color-ring:                var(--ring);
+
+  /* Label colors */
+  --color-label-orange: #FF9800;
+  --color-label-blue:   #1E88E5;
+  --color-label-green:  #4CAF50;
+  --color-label-pink:   #E91E63;
+  --color-label-purple: #AB47BC;
+  --color-label-coral:  #FF7043;
+
+  /* Status colors */
+  --color-danger:  #E30000;
+  --color-warning: #FFBB00;
+  --color-success: #00DE0F;
+  --color-info:    #0077FF;
+
+  /* Typography — Desktop */
+  --text-h1-desktop:      48px;
+  --text-h2-desktop:      36px;
+  --text-h3-desktop:      32px;
+  --text-body-desktop:    24px;
+  --text-caption-desktop: 20px;
+  --text-btn-desktop:     24px;
+
+  /* Typography — Mobile */
+  --text-h1-mobile:      32px;
+  --text-h2-mobile:      28px;
+  --text-h3-mobile:      24px;
+  --text-body-mobile:    20px;
+  --text-caption-mobile: 18px;
+  --text-btn-mobile:     20px;
 }
 
-/* Custom dark mode styles */
-html.dark {
-    background-color: #0f172a !important;
-    color: white !important;
+/* ─── Light Mode ─── */
+:root {
+  --radius: 0px;
+
+  /* Backgrounds */
+  --background:      #FAFAFA;    /* Paper White */
+  --foreground:      #0F0F0F;    /* Pitch Black */
+
+  /* Cards */
+  --card:            #FFFFFF;
+  --card-foreground: #0F0F0F;
+
+  /* Primary — Navy */
+  --primary:         #000080;
+  --primary-hover:   #0000B3;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary — Off-black */
+  --secondary:       #0F0F0F;
+  --secondary-foreground: #FAFAFA;
+
+  /* Muted */
+  --muted:           #E8E8E8;
+  --muted-foreground:#4A4A4A;
+
+  /* Accent */
+  --accent:          #D0D0E8;
+  --accent-foreground: #0F0F0F;
+
+  /* Destructive */
+  --destructive:     #E63946;
+  --destructive-foreground: #FFFFFF;
+
+  /* Borders / Inputs — pitch black for neo-brutalist edge */
+  --border: #0F0F0F;
+  --input:  #FFFFFF;
+  --ring:   #000080;
 }
 
+/* ─── Dark Mode ─── */
 .dark {
-    color: white !important;
+  --background:      #0F0F0F;    /* Pitch Black */
+  --foreground:      #FAFAFA;    /* Paper White */
+
+  --card:            #1A1A1A;
+  --card-foreground: #FAFAFA;
+
+  --primary:         #000080;
+  --primary-hover:   #0000B3;
+  --primary-foreground: #FFFFFF;
+
+  --secondary:       #2A2A2A;
+  --secondary-foreground: #FAFAFA;
+
+  --muted:           #1E1E1E;
+  --muted-foreground:#A0A0A0;
+
+  --accent:          #0A192F;    /* Deep Navy */
+  --accent-foreground: #FAFAFA;
+
+  --destructive:     #FF6B6B;
+  --destructive-foreground: #0F0F0F;
+
+  /* In dark mode borders stay black for sharp contrast */
+  --border: #0F0F0F;
+  --input:  #1A1A1A;
+  --ring:   #000080;
 }
 
-.dark .bg-white {
-    background-color: #1e293b !important;
+/* ─── Global Base Styles ─── */
+html {
+  font-family: var(--font-sans, "Space Grotesk", sans-serif);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
-.dark .text-gray-900 {
-    color: #f1f5f9 !important;
+body {
+  font-family: var(--font-sans, "Space Grotesk", sans-serif);
+  background-color: var(--background);
 }
 
-.dark .text-gray-800 {
-    color: #f8fafc !important;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head, "Archivo Black", sans-serif);
 }
 
-.dark .text-gray-700 {
-    color: #cbd5e1 !important;
-}
-
-.dark .text-gray-600 {
-    color: #94a3b8 !important;
-}
-
-.dark .text-blue-950 {
-    color: #f8fafc !important;
-}
-
-.dark .border-gray-200 {
-    border-color: #334155 !important;
-}
-
-.dark .border-gray-300 {
-    border-color: #475569 !important;
-}
-
-.dark .border-gray-400 {
-    border-color: #64748b !important;
-}
-
-/* Ensure consistent section backgrounds */
+/* Ensure sections are transparent */
 section {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
-.dark section {
-    background-color: transparent !important;
+/* ─── Neo-Brutalist Utility Classes ─── */
+
+/* Hard shadow variants keyed to navy */
+.shadow-neo-sm  { box-shadow: 2px 2px 0 0 #0F0F0F; }
+.shadow-neo     { box-shadow: 4px 4px 0 0 #0F0F0F; }
+.shadow-neo-navy { box-shadow: 4px 4px 0 0 #000080; }
+.shadow-neo-lg  { box-shadow: 6px 6px 0 0 #0F0F0F; }
+.shadow-neo-lg-navy { box-shadow: 6px 6px 0 0 #000080; }
+
+/* Button press effect (shift + shadow shrink) */
+.btn-neo-press:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 #0F0F0F;
+}
+.btn-neo-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 #0F0F0F;
 }
 
-/* Main page container consistency */
-.relative.w-full.min-h-screen {
-    background-color: white;
+/* Navy button press variant */
+.btn-neo-press-navy:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 #000080;
 }
-
-.dark .relative.w-full.min-h-screen {
-    background-color: #0f172a !important;
+.btn-neo-press-navy:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 #000080;
 }
-
-/* Ensure light mode has white background */
-html:not(.dark) {
-    background-color: white !important;
-}
-
-html:not(.dark) body {
-    background-color: white !important;
-}
-
-@theme {    
-    /* bgColor */
-    --color-dark:#381C64;
-    --color-light:#FFFFFF;
-
-    /* Primary Color */
-    --color-primary: #8342EC;
-    --color-primary-extra-light: #d4b9ff;
-    --color-primary-light: #7039CA;
-    --color-primary-dark: #381C64;
-
-    /* Label Color */
-    --color-label-orange: #FF9800;
-    --color-label-blue: #1E88E5;
-    --color-label-green: #4CAF50;
-    --color-label-pink: #E91E63;
-    --color-label-purple: #AB47BC;
-    --color-label-coral: #FF7043;
-
-    /* Status Color */
-    --color-danger: #E30000;
-    --color-warning: #FFBB00;
-    --color-success: #00DE0F;
-    --color-info: #0077FF;
-
-    /* Button Color */
-    --color-cta: #00C49A;
-    --color-warning: #FFBB00;
-    --color-success: #00DE0F;
-    --color-info: #0077FF;
-
-    /* Typography Desktop */
-    --text-h1-desktop: 48px;
-    --text-h2-desktop: 36px;
-    --text-h3-desktop: 32px;
-    --text-body-desktop: 24px;
-    --text-caption-desktop: 20px;
-    --text-btn-desktop: 24px;
-
-    /* Typography Mobile */
-    --text-h1-mobile: 32px;
-    --text-h2-mobile: 28px;
-    --text-h3-mobile: 24px;
-    --text-body-mobile: 20px;
-    --text-caption-mobile: 18px;
-    --text-btn-mobile: 20px;
-
-
-}   

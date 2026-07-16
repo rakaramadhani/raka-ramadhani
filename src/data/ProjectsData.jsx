@@ -15,7 +15,7 @@ const ProjectData = () => {
             image: "/image/Libratur.png",
             desc: "Created the user interface for a web-based book borrowing platform using Laravel and MySQL. Designed UI/UX with a user-centered design approach to ensure an intuitive and responsive user experience, achieving excellent usability standards.",
             category:'fullstack' ,
-            link:'https://github.com/rakaramadhani/residence-admin.git' ,
+            link:'https://github.com/ynntaprbw/TugasBesar-RPL-325.git' ,
             techandtools: ['Laravel', 'Tailwind CSS', 'MySQL', 'PHP', 'Figma'],
             key: 2
         },
@@ -37,6 +37,24 @@ const ProjectData = () => {
             techandtools: ['Figma'],
             key: 4
         },
+        // {
+        //     project: "Quick",
+        //     image: "/image/quick-app.png",
+        //     desc: "",
+        //     category: 'fullstack',
+        //     link:'#' ,
+        //     techandtools: ['Next.js', 'Tailwind CSS', 'PostgreSQL'],
+        //     key: 5
+        // },
+        // {
+        //     project: "Fenyen Accessories Website",
+        //     image: "/image/quick-app.png",
+        //     desc: "",
+        //     category: 'fullstack',
+        //     link:'#' ,
+        //     techandtools: ['Next.js', 'Tailwind CSS', 'PostgreSQL'],
+        //     key: 6
+        // },
     ]
 };
 export default ProjectData;

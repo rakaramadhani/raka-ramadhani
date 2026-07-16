@@ -1,100 +1,117 @@
 import PropTypes from 'prop-types';
 
-
 const categories = {
     internship: 'Internship',
-    parttime: 'Part-time',
-    freelance: 'Freelance',
-    none: 'No Category'
-}
-
-const categoryColors = {
-    internship: 'bg-label-green',
-    parttime: 'bg-label-orange',
-    freelance: 'bg-blue-500',
-    none: 'bg-label-coral',
+    parttime:   'Part-time',
+    freelance:  'Freelance',
+    none:       'General',
 };
 
-
+const categoryStyle = {
+    internship: 'bg-[#4CAF50] text-white',
+    parttime:   'bg-[#FF9800] text-[#0F0F0F]',
+    freelance:  'bg-[#000080] text-white',
+    none:       'bg-[#0F0F0F] text-white',
+};
 
 const Experience = (props) => {
+    const dateStr = (date) =>
+        date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+    const isPresent =
+        props.to > new Date() || props.to.getFullYear() > new Date().getFullYear();
+
     return (
-        <div className="w-full mx-auto">
-            <div className="flex flex-col bg-white dark:bg-slate-800 border rounded-lg shadow-sm border-gray-200 dark:border-slate-700 transition-all duration-300 ease-in-out p-4 hover:shadow-md">
-                {/* Header */}
-                <div className="mb-3">
-                    {/* Job Title and Category */}
-                    <div className="flex items-start justify-between mb-2">
-                        <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white leading-tight flex-1">
-                            {props.job}
-                        </h3>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${categoryColors[props.category]} text-white whitespace-nowrap ml-2 flex-shrink-0`}>
-                            {categories[props.category]}
-                        </span>
-                    </div>
-                    
-                    {/* Company and Location */}
-                    <h4 className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
-                        {props.company}
-                    </h4>
-                    {props.location && (
-                        <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 italic">
-                            {props.location}
-                        </p>
-                    )}
+        <div className="w-full">
+            <div
+                className="flex flex-col
+                    bg-[#FFFFFF] dark:bg-[#1A1A1A]
+                    border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
+                    border-l-4 border-l-[#000080]
+                    shadow-[4px_4px_0_0_#000080]
+                    p-5
+                    transition-all duration-150
+                    hover:-translate-x-0.5 hover:-translate-y-0.5
+                    hover:shadow-[6px_6px_0_0_#000080]"
+            >
+                {/* Header row */}
+                <div className="flex items-start justify-between mb-2 gap-3">
+                    <h3
+                        className="text-base md:text-lg font-black text-[#0F0F0F] dark:text-[#FAFAFA] leading-tight flex-1 uppercase"
+                        style={{ fontFamily: "'Archivo Black', sans-serif" }}
+                    >
+                        {props.job}
+                    </h3>
+                    <span
+                        className={`flex-shrink-0 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest
+                            border border-[#0F0F0F] ${categoryStyle[props.category]}`}
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                        {categories[props.category]}
+                    </span>
                 </div>
 
-                {/* Date Range */}
-                <div className="flex items-center text-xs text-gray-600 dark:text-gray-400 mb-3">
-                    <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span className="font-medium">
-                        {props.from.toLocaleDateString("en-US", { month: "short", year: "numeric" })} - {" "}
-                        {props.to > new Date() || props.to.getFullYear() > new Date().getFullYear() 
-                            ? "Present" 
-                            : props.to.toLocaleDateString("en-US", { month: "short", year: "numeric" })
-                        }
+                {/* Company */}
+                <h4
+                    className="text-sm font-bold text-[#000080] mb-1 uppercase tracking-wider"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                    {props.company}
+                </h4>
+
+                {props.location && (
+                    <p className="text-xs text-[#4A4A4A] dark:text-[#A0A0A0] italic mb-3"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                        {props.location}
+                    </p>
+                )}
+
+                {/* Date range */}
+                <div className="flex items-center gap-2 mb-4">
+                    <div className="w-2 h-2 bg-[#000080] flex-shrink-0" />
+                    <span
+                        className="text-xs font-bold text-[#0F0F0F] dark:text-[#FAFAFA] uppercase tracking-wider"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                        {dateStr(props.from)} — {isPresent ? 'Present' : dateStr(props.to)}
                     </span>
                 </div>
 
                 {/* Achievements */}
-                {props.achievements && props.achievements.length > 0 && (
-                    <div className="space-y-2">
-                        <ul className="space-y-1.5">
-                            {props.achievements.map((achievement, index) => (
-                                <li key={index} className="flex items-start text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    <span className="text-indigo-500 mr-2 mt-1 flex-shrink-0">•</span>
-                                    <span>{achievement}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                {props.achievements?.length > 0 && (
+                    <ul className="space-y-1.5">
+                        {props.achievements.map((ach, i) => (
+                            <li key={i} className="flex items-start gap-2 text-xs text-[#4A4A4A] dark:text-[#A0A0A0] leading-relaxed"
+                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                <span className="mt-1 w-2 h-2 bg-[#000080] flex-shrink-0" />
+                                <span>{ach}</span>
+                            </li>
+                        ))}
+                    </ul>
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 Experience.propTypes = {
-    company: PropTypes.string,
-    location: PropTypes.string,
-    job: PropTypes.string,
+    company:      PropTypes.string,
+    location:     PropTypes.string,
+    job:          PropTypes.string,
     achievements: PropTypes.arrayOf(PropTypes.string),
-    from: PropTypes.instanceOf(Date),
-    to: PropTypes.instanceOf(Date),
-    category: PropTypes.oneOf(Object.keys(categories))
+    from:         PropTypes.instanceOf(Date),
+    to:           PropTypes.instanceOf(Date),
+    category:     PropTypes.oneOf(Object.keys(categories)),
 };
 
 Experience.defaultProps = {
-    company: "",
-    location: "",
-    job: "",
+    company:      '',
+    location:     '',
+    job:          '',
     achievements: [],
-    category: "none",
-    from: new Date(),
-    to: new Date(),
+    category:     'none',
+    from:         new Date(),
+    to:           new Date(),
 };
-
 
 export default Experience;

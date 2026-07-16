@@ -6,43 +6,36 @@ const BackToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const toggleVisibility = () => {
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
-
-        window.addEventListener('scroll', toggleVisibility);
-        
-        return () => window.removeEventListener('scroll', toggleVisibility);
+        const toggle = () => setIsVisible(window.scrollY > 300);
+        window.addEventListener('scroll', toggle);
+        return () => window.removeEventListener('scroll', toggle);
     }, []);
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
+    const scrollToTop = () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
         <AnimatePresence>
             {isVisible && (
                 <motion.button
-                    className="fixed bottom-8 right-8 bg-gradient-to-br from-primary to-primary-dark dark:from-blue-500 dark:to-indigo-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl z-40 group"
+                    className="fixed bottom-8 right-8 z-40
+                        w-12 h-12 flex items-center justify-center
+                        bg-[#000080] text-white
+                        border-2 border-[#0F0F0F]
+                        shadow-[4px_4px_0_0_#0F0F0F]
+                        hover:shadow-[6px_6px_0_0_#0F0F0F]
+                        hover:-translate-x-0.5 hover:-translate-y-0.5
+                        active:translate-x-0.5 active:translate-y-0.5
+                        active:shadow-[1px_1px_0_0_#0F0F0F]
+                        transition-all duration-150"
                     onClick={scrollToTop}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0 }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0, rotate: -90 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0, rotate: 90 }}
                     transition={{ duration: 0.2 }}
+                    aria-label="Back to top"
                 >
-                    <ChevronUp 
-                        size={24} 
-                        className="group-hover:animate-bounce" 
-                    />
+                    <ChevronUp size={22} strokeWidth={3} />
                 </motion.button>
             )}
         </AnimatePresence>
