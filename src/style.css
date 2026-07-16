@@ -121,8 +121,8 @@
   --card:            #1A1A1A;
   --card-foreground: #FAFAFA;
 
-  --primary:         #000080;
-  --primary-hover:   #0000B3;
+  --primary:         #4D4DFF;    /* Neon / Electric Navy */
+  --primary-hover:   #6666FF;
   --primary-foreground: #FFFFFF;
 
   --secondary:       #2A2A2A;
@@ -131,7 +131,7 @@
   --muted:           #1E1E1E;
   --muted-foreground:#A0A0A0;
 
-  --accent:          #0A192F;    /* Deep Navy */
+  --accent:          #1A2A4A;    /* Lightened Navy Accent */
   --accent-foreground: #FAFAFA;
 
   --destructive:     #FF6B6B;
@@ -140,7 +140,7 @@
   /* In dark mode borders stay black for sharp contrast */
   --border: #0F0F0F;
   --input:  #1A1A1A;
-  --ring:   #000080;
+  --ring:   #4D4DFF;
 }
 
 /* ─── Global Base Styles ─── */
@@ -169,9 +169,9 @@ section {
 /* Hard shadow variants keyed to navy */
 .shadow-neo-sm  { box-shadow: 2px 2px 0 0 #0F0F0F; }
 .shadow-neo     { box-shadow: 4px 4px 0 0 #0F0F0F; }
-.shadow-neo-navy { box-shadow: 4px 4px 0 0 #000080; }
+.shadow-neo-navy { box-shadow: 4px 4px 0 0 var(--primary); }
 .shadow-neo-lg  { box-shadow: 6px 6px 0 0 #0F0F0F; }
-.shadow-neo-lg-navy { box-shadow: 6px 6px 0 0 #000080; }
+.shadow-neo-lg-navy { box-shadow: 6px 6px 0 0 var(--primary); }
 
 /* Button press effect (shift + shadow shrink) */
 .btn-neo-press:hover {
@@ -186,9 +186,9 @@ section {
 /* Navy button press variant */
 .btn-neo-press-navy:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 0 #000080;
+  box-shadow: 6px 6px 0 0 var(--primary);
 }
 .btn-neo-press-navy:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 0 #000080;
+  box-shadow: 1px 1px 0 0 var(--primary);
 }

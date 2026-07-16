@@ -6,14 +6,12 @@ const NavbarDarkModeToggle = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
-        // Check localStorage on mount
         const saved = localStorage.getItem('darkMode');
         if (saved !== null) {
             const isDark = JSON.parse(saved);
             setDarkMode(isDark);
             applyTheme(isDark);
         } else {
-            // Check system preference
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             setDarkMode(prefersDark);
             applyTheme(prefersDark);
@@ -23,27 +21,21 @@ const NavbarDarkModeToggle = () => {
     const applyTheme = (isDark) => {
         const root = document.documentElement;
         const body = document.body;
-        
+
         if (isDark) {
             root.classList.add('dark');
             body.classList.add('dark');
-            root.style.backgroundColor = '#0F0F0F';
-            body.style.backgroundColor = '#0F0F0F';
         } else {
             root.classList.remove('dark');
             body.classList.remove('dark');
-            root.style.backgroundColor = '#FAFAFA';
-            body.style.backgroundColor = '#FAFAFA';
         }
-        
-        // Debug logs
-        console.log('Navbar toggle - Applying theme:', isDark ? 'dark' : 'light');
+        // Let CSS vars (--background) drive the actual bg color — no inline styles
+        root.style.removeProperty('backgroundColor');
+        body.style.removeProperty('backgroundColor');
     };
 
     const toggleDarkMode = () => {
         const newMode = !darkMode;
-        console.log('Navbar toggle - Toggling from', darkMode, 'to', newMode);
-        
         setDarkMode(newMode);
         applyTheme(newMode);
         localStorage.setItem('darkMode', JSON.stringify(newMode));
@@ -53,10 +45,10 @@ const NavbarDarkModeToggle = () => {
         <motion.button
             onClick={toggleDarkMode}
             className="relative p-2
-                border-2 border-[#0F0F0F] dark:border-[#FAFAFA]
-                bg-[#FAFAFA] dark:bg-[#0F0F0F]
-                shadow-[2px_2px_0_0_#000080]
-                hover:shadow-[3px_3px_0_0_#000080]
+                border-2 border-border
+                bg-background text-foreground
+                shadow-[2px_2px_0_0_var(--color-primary)]
+                hover:shadow-[3px_3px_0_0_var(--color-primary)]
                 hover:-translate-x-0.5 hover:-translate-y-0.5
                 transition-all duration-150 group"
             whileTap={{ x: 1, y: 1 }}
@@ -66,37 +58,27 @@ const NavbarDarkModeToggle = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.4 }}
         >
-            {/* Background hover effect */}
+            {/* Hover fill */}
             <motion.div
-                className="absolute inset-0 bg-[#000080]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+                className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
             />
-            
+
             <AnimatePresence mode="wait">
                 <motion.div
                     key={darkMode ? 'moon' : 'sun'}
                     initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0,   opacity: 1, scale: 1   }}
+                    exit={{    rotate:  90, opacity: 0, scale: 0.5 }}
                     transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
                     className="relative z-10"
                 >
                     {darkMode ? (
-                        <Moon
-                            size={18}
-                            className="text-[#0F0F0F] dark:text-[#FAFAFA]"
-                            strokeWidth={2.5}
-                        />
+                        <Moon size={18} className="text-foreground" strokeWidth={2.5} />
                     ) : (
-                        <Sun
-                            size={18}
-                            className="text-[#0F0F0F] dark:text-[#FAFAFA]"
-                            strokeWidth={2.5}
-                        />
+                        <Sun  size={18} className="text-foreground" strokeWidth={2.5} />
                     )}
                 </motion.div>
             </AnimatePresence>
-
-
         </motion.button>
     );
 };

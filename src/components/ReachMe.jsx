@@ -13,30 +13,10 @@ const contactSchema = z.object({
 });
 
 const socialLinks = [
-    {
-        icon: Linkedin,
-        link: "https://www.linkedin.com/in/raka-ramadhani-256106221/",
-        name: "LinkedIn",
-        bg: "#0A66C2",
-    },
-    {
-        icon: Instagram,
-        link: "https://www.instagram.com/rakaramadhani_/",
-        name: "Instagram",
-        bg: "#E1306C",
-    },
-    {
-        icon: Github,
-        link: "https://github.com/rakaramadhani",
-        name: "GitHub",
-        bg: "#0F0F0F",
-    },
-    {
-        icon: Phone,
-        link: "https://wa.me/+6281353252938",
-        name: "WhatsApp",
-        bg: "#25D366",
-    },
+    { icon: Linkedin,  link: "https://www.linkedin.com/in/raka-ramadhani-256106221/", name: "LinkedIn",  bg: "#0A66C2" },
+    { icon: Instagram, link: "https://www.instagram.com/rakaramadhani_/",             name: "Instagram", bg: "#E1306C" },
+    { icon: Github,    link: "https://github.com/rakaramadhani",                       name: "GitHub",    bg: "#0F0F0F" },
+    { icon: Phone,     link: "https://wa.me/+6281353252938",                           name: "WhatsApp",  bg: "#25D366" },
 ];
 
 const ReachMe = () => {
@@ -78,23 +58,23 @@ const ReachMe = () => {
     return (
         <div
             className="grid grid-cols-1 lg:grid-cols-2 gap-0
-                bg-[#FFFFFF] dark:bg-[#1A1A1A]
-                border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
-                shadow-[6px_6px_0_0_#000080]
+                bg-card text-card-foreground
+                border-2 border-border
+                shadow-[6px_6px_0_0_var(--color-primary)]
                 w-full"
         >
             {/* ── Left: Contact Info ─────────────────── */}
-            <div className="p-6 md:p-10 space-y-6 border-b-2 lg:border-b-0 lg:border-r-2 border-[#0F0F0F]">
+            <div className="p-6 md:p-10 space-y-6 border-b-2 lg:border-b-0 lg:border-r-2 border-border">
                 <div>
                     <h3
-                        className="font-black text-2xl md:text-3xl uppercase text-[#0F0F0F] dark:text-[#FAFAFA] mb-1"
+                        className="font-black text-2xl md:text-3xl uppercase text-foreground mb-1"
                         style={{ fontFamily: "'Archivo Black', sans-serif" }}
                     >
                         Get in Touch
                     </h3>
-                    <div className="w-16 h-1 bg-[#000080] mb-4" />
+                    <div className="w-16 h-1 bg-primary mb-4" />
                     <p
-                        className="text-sm text-[#4A4A4A] dark:text-[#A0A0A0] leading-[1.7]"
+                        className="text-sm text-muted-foreground leading-[1.7]"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         I'm always open to new opportunities and interesting projects.
@@ -114,7 +94,7 @@ const ReachMe = () => {
                         {
                             icon: PinIcon,
                             label: "Location",
-                            value: "Purworejo, Central Java, Indonesia",
+                            value: "Bandung, West Java, Indonesia",
                             href: "https://maps.app.goo.gl/6qPuAdgLStLzZP9y8",
                         },
                     ].map(({ icon: Icon, label, value, href }) => (
@@ -122,22 +102,22 @@ const ReachMe = () => {
                             key={label}
                             href={href}
                             className="flex items-center gap-4 p-4
-                                border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
-                                shadow-[3px_3px_0_0_#000080]
-                                hover:shadow-[5px_5px_0_0_#000080]
+                                border-2 border-border
+                                shadow-[3px_3px_0_0_var(--color-primary)]
+                                hover:shadow-[5px_5px_0_0_var(--color-primary)]
                                 hover:-translate-x-0.5 hover:-translate-y-0.5
                                 transition-all duration-150 group"
                         >
-                            <div className="flex-shrink-0 w-10 h-10 bg-[#000080] flex items-center justify-center">
-                                <Icon size={18} color="white" strokeWidth={2} />
+                            <div className="flex-shrink-0 w-10 h-10 bg-primary flex items-center justify-center">
+                                <Icon size={18} className="text-primary-foreground" strokeWidth={2} />
                             </div>
                             <div className="text-left">
-                                <span className="block text-xs font-bold uppercase tracking-widest text-[#000080]"
+                                <span className="block text-xs font-bold uppercase tracking-widest text-primary"
                                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                                     {label}
                                 </span>
-                                <span className="block text-sm font-medium text-[#0F0F0F] dark:text-[#FAFAFA]
-                                    group-hover:text-[#000080] transition-colors"
+                                <span className="block text-sm font-medium text-foreground
+                                    group-hover:text-primary transition-colors"
                                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                                     {value}
                                 </span>
@@ -148,7 +128,7 @@ const ReachMe = () => {
 
                 {/* Social Links */}
                 <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-[#4A4A4A] dark:text-[#A0A0A0] mb-3"
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                         Connect with me
                     </p>
@@ -161,9 +141,9 @@ const ReachMe = () => {
                                 rel="noopener noreferrer"
                                 title={name}
                                 className="group relative flex items-center justify-center w-11 h-11
-                                    border-2 border-[#0F0F0F]
-                                    shadow-[3px_3px_0_0_#0F0F0F]
-                                    hover:shadow-[5px_5px_0_0_#0F0F0F]
+                                    border-2 border-border
+                                    shadow-[3px_3px_0_0_var(--color-border)]
+                                    hover:shadow-[5px_5px_0_0_var(--color-border)]
                                     hover:-translate-x-0.5 hover:-translate-y-0.5
                                     transition-all duration-150"
                                 style={{ backgroundColor: bg }}
@@ -183,18 +163,18 @@ const ReachMe = () => {
             >
                 <div>
                     <h3
-                        className="font-black text-2xl md:text-3xl uppercase text-[#0F0F0F] dark:text-[#FAFAFA] mb-1"
+                        className="font-black text-2xl md:text-3xl uppercase text-foreground mb-1"
                         style={{ fontFamily: "'Archivo Black', sans-serif" }}
                     >
                         Send Message
                     </h3>
-                    <div className="w-16 h-1 bg-[#000080] mb-4" />
+                    <div className="w-16 h-1 bg-primary mb-4" />
                 </div>
 
                 {/* Name */}
                 <div>
                     <label
-                        className="block text-xs font-bold uppercase tracking-widest text-[#0F0F0F] dark:text-[#FAFAFA] mb-1"
+                        className="block text-xs font-bold uppercase tracking-widest text-foreground mb-1"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         Your Name
@@ -206,13 +186,12 @@ const ReachMe = () => {
                         required
                         placeholder="Raka Ramadhani"
                         className="w-full px-4 py-3
-                            border-2 border-[#0F0F0F] dark:border-[#FAFAFA]
-                            bg-[#FAFAFA] dark:bg-[#0F0F0F]
-                            text-[#0F0F0F] dark:text-[#FAFAFA]
+                            border-2 border-border
+                            bg-input text-foreground
                             text-sm font-medium
-                            shadow-[2px_2px_0_0_#000080]
-                            focus:outline-none focus:shadow-[4px_4px_0_0_#000080]
-                            transition-all duration-150 placeholder:text-[#A0A0A0]"
+                            shadow-[2px_2px_0_0_var(--color-primary)]
+                            focus:outline-none focus:shadow-[4px_4px_0_0_var(--color-primary)]
+                            transition-all duration-150 placeholder:text-muted-foreground"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     />
                 </div>
@@ -220,7 +199,7 @@ const ReachMe = () => {
                 {/* Email */}
                 <div>
                     <label
-                        className="block text-xs font-bold uppercase tracking-widest text-[#0F0F0F] dark:text-[#FAFAFA] mb-1"
+                        className="block text-xs font-bold uppercase tracking-widest text-foreground mb-1"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         Your Email
@@ -232,20 +211,17 @@ const ReachMe = () => {
                         required
                         placeholder="your@email.com"
                         className={`w-full px-4 py-3
-                            border-2
-                            bg-[#FAFAFA] dark:bg-[#0F0F0F]
-                            text-[#0F0F0F] dark:text-[#FAFAFA]
-                            text-sm font-medium
-                            focus:outline-none
-                            transition-all duration-150 placeholder:text-[#A0A0A0]
+                            border-2 bg-input text-foreground
+                            text-sm font-medium focus:outline-none
+                            transition-all duration-150 placeholder:text-muted-foreground
                             ${Form.formState.errors.email
-                                ? "border-[#E63946] shadow-[2px_2px_0_0_#E63946] focus:shadow-[4px_4px_0_0_#E63946]"
-                                : "border-[#0F0F0F] dark:border-[#FAFAFA] shadow-[2px_2px_0_0_#000080] focus:shadow-[4px_4px_0_0_#000080]"
+                                ? "border-destructive shadow-[2px_2px_0_0_var(--color-destructive)] focus:shadow-[4px_4px_0_0_var(--color-destructive)]"
+                                : "border-border shadow-[2px_2px_0_0_var(--color-primary)] focus:shadow-[4px_4px_0_0_var(--color-primary)]"
                             }`}
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     />
                     {Form.formState.errors.email && (
-                        <p className="text-[#E63946] text-xs mt-1 font-bold"
+                        <p className="text-destructive text-xs mt-1 font-bold"
                             style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                             {Form.formState.errors.email?.message}
                         </p>
@@ -255,7 +231,7 @@ const ReachMe = () => {
                 {/* Message */}
                 <div>
                     <label
-                        className="block text-xs font-bold uppercase tracking-widest text-[#0F0F0F] dark:text-[#FAFAFA] mb-1"
+                        className="block text-xs font-bold uppercase tracking-widest text-foreground mb-1"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         Your Message
@@ -267,14 +243,13 @@ const ReachMe = () => {
                         required
                         placeholder="Write your message here..."
                         className="w-full px-4 py-3
-                            border-2 border-[#0F0F0F] dark:border-[#FAFAFA]
-                            bg-[#FAFAFA] dark:bg-[#0F0F0F]
-                            text-[#0F0F0F] dark:text-[#FAFAFA]
+                            border-2 border-border
+                            bg-input text-foreground
                             text-sm font-medium
-                            shadow-[2px_2px_0_0_#000080]
-                            focus:outline-none focus:shadow-[4px_4px_0_0_#000080]
+                            shadow-[2px_2px_0_0_var(--color-primary)]
+                            focus:outline-none focus:shadow-[4px_4px_0_0_var(--color-primary)]
                             transition-all duration-150 resize-none
-                            placeholder:text-[#A0A0A0]"
+                            placeholder:text-muted-foreground"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     />
                 </div>
@@ -285,21 +260,21 @@ const ReachMe = () => {
                     disabled={isLoading}
                     className="w-full flex items-center justify-center gap-2
                         py-3 px-6
-                        bg-[#000080] text-white
-                        border-2 border-[#0F0F0F]
-                        shadow-[4px_4px_0_0_#0F0F0F]
+                        bg-primary text-primary-foreground
+                        border-2 border-border
+                        shadow-[4px_4px_0_0_var(--color-border)]
                         font-black uppercase tracking-widest text-sm
                         disabled:opacity-60 disabled:cursor-not-allowed
                         hover:-translate-x-0.5 hover:-translate-y-0.5
-                        hover:shadow-[6px_6px_0_0_#0F0F0F]
+                        hover:shadow-[6px_6px_0_0_var(--color-border)]
                         active:translate-x-0.5 active:translate-y-0.5
-                        active:shadow-[1px_1px_0_0_#0F0F0F]
+                        active:shadow-[1px_1px_0_0_var(--color-border)]
                         transition-all duration-150 min-h-[48px]"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                     {isLoading ? (
                         <>
-                            <div className="w-4 h-4 border-2 border-white border-t-transparent animate-spin" />
+                            <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent animate-spin" />
                             Sending...
                         </>
                     ) : (

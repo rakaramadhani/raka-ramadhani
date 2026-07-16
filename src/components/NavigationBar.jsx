@@ -13,9 +13,9 @@ const Menus = [
 ];
 
 const NavigationBar = () => {
-    const [activeMenu, setActiveMenu]   = useState("home");
-    const [isMenuOpen, setIsMenuOpen]   = useState(false);
-    const [scrolled,   setScrolled]     = useState(false);
+    const [activeMenu, setActiveMenu] = useState("home");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled,   setScrolled]   = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -49,9 +49,8 @@ const NavigationBar = () => {
     return (
         <motion.header
             className={`fixed top-0 left-0 right-0 z-30 transition-all duration-200
-                bg-[#FAFAFA] dark:bg-[#0F0F0F]
-                border-b-2 border-[#0F0F0F] dark:border-[#0F0F0F]
-                ${scrolled ? "shadow-[0_4px_0_0_#0F0F0F]" : ""}`}
+                bg-background border-b-2 border-border
+                ${scrolled ? "shadow-[0_4px_0_0_var(--color-border)]" : ""}`}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -60,18 +59,18 @@ const NavigationBar = () => {
 
                 {/* Logo */}
                 <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.15 }}>
-                    <h1 className="font-black text-2xl uppercase tracking-tight text-[#0F0F0F] dark:text-[#FAFAFA]"
+                    <h1 className="font-black text-2xl uppercase tracking-tight text-foreground"
                         style={{ fontFamily: "'Archivo Black', sans-serif" }}>
-                        Raka<span className="text-[#000080]">Ramadhani</span>
+                        Raka<span className="text-primary">Ramadhani</span>
                     </h1>
                 </motion.div>
 
                 {/* Hamburger */}
                 <motion.button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="md:hidden text-[#0F0F0F] dark:text-[#FAFAFA] focus:outline-none z-50 relative
-                        border-2 border-[#0F0F0F] dark:border-[#FAFAFA] p-1.5
-                        hover:bg-[#000080] hover:text-white hover:border-[#000080]
+                    className="md:hidden text-foreground focus:outline-none z-50 relative
+                        border-2 border-border p-1.5
+                        hover:bg-primary hover:text-primary-foreground hover:border-primary
                         transition-colors duration-150"
                     whileTap={{ scale: 0.9 }}
                 >
@@ -106,8 +105,8 @@ const NavigationBar = () => {
                                     className={`relative px-4 py-2 text-sm font-semibold uppercase tracking-wider cursor-pointer
                                         transition-all duration-150 select-none
                                         ${activeMenu === menu.path
-                                            ? "bg-[#000080] text-white border-2 border-[#000080] shadow-[2px_2px_0_0_#0F0F0F]"
-                                            : "text-[#0F0F0F] dark:text-[#FAFAFA] border-2 border-transparent hover:border-[#0F0F0F] dark:hover:border-[#FAFAFA] hover:shadow-[2px_2px_0_0_#0F0F0F]"
+                                            ? "bg-primary text-primary-foreground border-2 border-primary shadow-[2px_2px_0_0_var(--color-border)]"
+                                            : "text-foreground border-2 border-transparent hover:border-border hover:shadow-[2px_2px_0_0_var(--color-border)]"
                                         }`}
                                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                                 >
@@ -125,7 +124,7 @@ const NavigationBar = () => {
                         <>
                             {/* Backdrop */}
                             <motion.div
-                                className="fixed inset-0 bg-black/60 md:hidden z-20"
+                                className="fixed inset-0 bg-foreground/60 md:hidden z-20"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -135,9 +134,8 @@ const NavigationBar = () => {
                             {/* Mobile Menu Panel */}
                             <motion.div
                                 className="fixed top-0 right-0 h-full w-3/4 max-w-sm
-                                    bg-[#FAFAFA] dark:bg-[#0F0F0F]
-                                    border-l-4 border-[#0F0F0F] dark:border-[#FAFAFA]
-                                    shadow-[-6px_0_0_0_#000080]
+                                    bg-background border-l-4 border-border
+                                    shadow-[-6px_0_0_0_var(--color-primary)]
                                     md:hidden z-30"
                                 variants={menuVariants}
                                 initial="closed"
@@ -162,8 +160,8 @@ const NavigationBar = () => {
                                                     className={`block py-3 px-4 text-base font-semibold uppercase tracking-wider cursor-pointer
                                                         border-2 transition-all duration-150
                                                         ${activeMenu === menu.path
-                                                            ? "bg-[#000080] text-white border-[#000080] shadow-[3px_3px_0_0_#0F0F0F]"
-                                                            : "text-[#0F0F0F] dark:text-[#FAFAFA] border-[#0F0F0F] dark:border-[#FAFAFA] hover:bg-[#000080] hover:text-white hover:border-[#000080]"
+                                                            ? "bg-primary text-primary-foreground border-primary shadow-[3px_3px_0_0_var(--color-border)]"
+                                                            : "text-foreground border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
                                                         }`}
                                                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                                                 >
@@ -175,14 +173,14 @@ const NavigationBar = () => {
 
                                     {/* Mobile Dark Mode Toggle */}
                                     <motion.div
-                                        className="mt-8 pt-6 border-t-2 border-[#0F0F0F] dark:border-[#FAFAFA]"
+                                        className="mt-8 pt-6 border-t-2 border-border"
                                         variants={linkVariants}
                                         initial="closed"
                                         animate="open"
                                         transition={{ delay: Menus.length * 0.08 + 0.1 }}
                                     >
                                         <div className="flex items-center justify-between">
-                                            <span className="text-[#0F0F0F] dark:text-[#FAFAFA] font-semibold uppercase text-sm tracking-wider"
+                                            <span className="text-foreground font-semibold uppercase text-sm tracking-wider"
                                                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                                                 Dark Mode
                                             </span>

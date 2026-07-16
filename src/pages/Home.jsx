@@ -29,7 +29,7 @@ const SectionHeader = ({ number, title, subtitle }) => (
         <div className="flex items-start gap-4">
             {/* Number marker */}
             <span
-                className="text-5xl md:text-6xl font-black text-[#000080] leading-none select-none"
+                className="text-5xl md:text-6xl font-black text-primary leading-none select-none"
                 style={{ fontFamily: "'Archivo Black', sans-serif" }}
             >
                 {number.toString().padStart(2, "0")}
@@ -37,32 +37,32 @@ const SectionHeader = ({ number, title, subtitle }) => (
             <div className="pt-2">
                 <h2
                     className="text-2xl md:text-4xl font-black uppercase tracking-tight
-                        text-[#0F0F0F] dark:text-[#FAFAFA] leading-none"
+                        text-foreground leading-none"
                     style={{ fontFamily: "'Archivo Black', sans-serif" }}
                 >
                     {title}
                 </h2>
                 <p
-                    className="text-sm md:text-base text-[#4A4A4A] dark:text-[#A0A0A0] mt-1 font-medium"
+                    className="text-sm md:text-base text-muted-foreground mt-1 font-medium"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                     {subtitle}
                 </p>
             </div>
         </div>
-        {/* Hard divider line */}
-        <div className="w-full h-0.5 bg-[#0F0F0F] dark:bg-[#FAFAFA] mt-6" />
+        {/* Hard divider */}
+        <div className="w-full h-0.5 bg-border mt-6" />
     </div>
 );
 
 /* ── Page ───────────────────────────────────────── */
 const HomePage = () => {
-    const Projects      = ProjectData();
+    const Projects       = ProjectData();
     const Organizational = OrganizationalData();
-    const Experiences   = ExperienceData();
+    const Experiences    = ExperienceData();
 
     return (
-        <div className="relative w-full min-h-screen bg-[#FAFAFA] dark:bg-[#0F0F0F] transition-colors duration-200">
+        <div className="relative w-full min-h-screen bg-background text-foreground transition-colors duration-200">
             <ScrollProgress />
 
             <div className="flex flex-col relative">
@@ -77,8 +77,7 @@ const HomePage = () => {
                     id="home"
                     className="scroll-mt-24 px-6 mx-auto max-w-screen-xl
                         flex flex-col-reverse md:flex-row items-center justify-center
-                        gap-12 md:gap-24
-                        py-20 md:py-32"
+                        gap-12 md:gap-24 py-20 md:py-32"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -88,7 +87,7 @@ const HomePage = () => {
                 </motion.section>
 
                 {/* Hard divider */}
-                <div className="w-full h-0.5 bg-[#0F0F0F] dark:bg-[#FAFAFA]" />
+                <div className="w-full h-0.5 bg-border" />
 
                 {/* ══ ABOUT ══════════════════════════════════════════════ */}
                 <motion.section
@@ -102,17 +101,13 @@ const HomePage = () => {
                     viewport={{ once: true, amount: 0.15 }}
                 >
                     <div className="w-full">
-                        <SectionHeader
-                            number={1}
-                            title="The Background"
-                            subtitle="Get to know me better"
-                        />
+                        <SectionHeader number={1} title="The Background" subtitle="Get to know me better" />
                         <About />
                     </div>
                 </motion.section>
 
                 {/* Hard divider */}
-                <div className="w-full h-0.5 bg-[#0F0F0F] dark:bg-[#FAFAFA]" />
+                <div className="w-full h-0.5 bg-border" />
 
                 {/* ══ PROJECTS ═══════════════════════════════════════════ */}
                 <motion.section
@@ -126,11 +121,7 @@ const HomePage = () => {
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     <div className="w-full">
-                        <SectionHeader
-                            number={2}
-                            title="Shipped Projects"
-                            subtitle="Some of my recent work"
-                        />
+                        <SectionHeader number={2} title="Shipped Projects" subtitle="Some of my recent work" />
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
                             {Projects.map((project, index) => (
                                 <motion.div
@@ -149,7 +140,7 @@ const HomePage = () => {
                 </motion.section>
 
                 {/* Hard divider */}
-                <div className="w-full h-0.5 bg-[#0F0F0F] dark:bg-[#FAFAFA]" />
+                <div className="w-full h-0.5 bg-border" />
 
                 {/* ══ EXPERIENCE ═════════════════════════════════════════ */}
                 <motion.section
@@ -163,16 +154,12 @@ const HomePage = () => {
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     <div className="w-full max-w-screen-xl mx-auto">
-                        <SectionHeader
-                            number={3}
-                            title="Proven Track Record"
-                            subtitle="My professional journey"
-                        />
+                        <SectionHeader number={3} title="Proven Track Record" subtitle="My professional journey" />
 
                         {/* Timeline */}
                         <div className="relative w-full max-w-6xl mx-auto">
-                            {/* Center line (desktop) */}
-                            <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-[#000080] transform -translate-x-1/2 hidden md:block" />
+                            {/* Center line */}
+                            <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-primary transform -translate-x-1/2 hidden md:block" />
 
                             <div className="space-y-8">
                                 {Experiences.map((experience, index) => (
@@ -184,8 +171,8 @@ const HomePage = () => {
                                         viewport={{ once: true }}
                                         className="relative flex items-center w-full"
                                     >
-                                        {/* Timeline square marker */}
-                                        <div className="absolute left-1/2 w-4 h-4 bg-[#000080] border-2 border-[#0F0F0F]
+                                        {/* Square timeline marker */}
+                                        <div className="absolute left-1/2 w-4 h-4 bg-primary border-2 border-border
                                             transform -translate-x-1/2 z-10 hidden md:block" />
 
                                         {/* Card */}
@@ -204,7 +191,7 @@ const HomePage = () => {
                 </motion.section>
 
                 {/* Hard divider */}
-                <div className="w-full h-0.5 bg-[#0F0F0F] dark:bg-[#FAFAFA]" />
+                <div className="w-full h-0.5 bg-border" />
 
                 {/* ══ ORGANIZATIONAL EXP ════════════════════════════════ */}
                 <motion.section
@@ -218,11 +205,7 @@ const HomePage = () => {
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     <div className="w-full">
-                        <SectionHeader
-                            number={4}
-                            title="Organizational Experience"
-                            subtitle="Leadership & community roles"
-                        />
+                        <SectionHeader number={4} title="Organizational Experience" subtitle="Leadership & community roles" />
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
                             {Organizational.map((project, index) => (
                                 <motion.div
@@ -241,7 +224,7 @@ const HomePage = () => {
                 </motion.section>
 
                 {/* Hard divider */}
-                <div className="w-full h-0.5 bg-[#0F0F0F] dark:bg-[#FAFAFA]" />
+                <div className="w-full h-0.5 bg-border" />
 
                 {/* ══ CONTACT ════════════════════════════════════════════ */}
                 <motion.section
@@ -255,11 +238,7 @@ const HomePage = () => {
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     <div className="w-full">
-                        <SectionHeader
-                            number={5}
-                            title="Let's Connect"
-                            subtitle="Get in touch with me"
-                        />
+                        <SectionHeader number={5} title="Let's Connect" subtitle="Get in touch with me" />
                         <ReachMe />
                     </div>
                 </motion.section>

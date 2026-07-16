@@ -7,11 +7,12 @@ const categories = {
     none:       'General',
 };
 
+/* Use label-color tokens from the theme */
 const categoryStyle = {
-    internship: 'bg-[#4CAF50] text-white',
-    parttime:   'bg-[#FF9800] text-[#0F0F0F]',
-    freelance:  'bg-[#000080] text-white',
-    none:       'bg-[#0F0F0F] text-white',
+    internship: 'bg-label-green  text-white',
+    parttime:   'bg-label-orange text-foreground',
+    freelance:  'bg-primary      text-primary-foreground',
+    none:       'bg-foreground   text-background',
 };
 
 const Experience = (props) => {
@@ -25,26 +26,25 @@ const Experience = (props) => {
         <div className="w-full">
             <div
                 className="flex flex-col
-                    bg-[#FFFFFF] dark:bg-[#1A1A1A]
-                    border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
-                    border-l-4 border-l-[#000080]
-                    shadow-[4px_4px_0_0_#000080]
+                    bg-card text-card-foreground
+                    border-2 border-border border-l-4 border-l-primary
+                    shadow-[4px_4px_0_0_var(--color-primary)]
                     p-5
                     transition-all duration-150
                     hover:-translate-x-0.5 hover:-translate-y-0.5
-                    hover:shadow-[6px_6px_0_0_#000080]"
+                    hover:shadow-[6px_6px_0_0_var(--color-primary)]"
             >
                 {/* Header row */}
                 <div className="flex items-start justify-between mb-2 gap-3">
                     <h3
-                        className="text-base md:text-lg font-black text-[#0F0F0F] dark:text-[#FAFAFA] leading-tight flex-1 uppercase"
+                        className="text-base md:text-lg font-black text-foreground leading-tight flex-1 uppercase"
                         style={{ fontFamily: "'Archivo Black', sans-serif" }}
                     >
                         {props.job}
                     </h3>
                     <span
                         className={`flex-shrink-0 px-2 py-0.5 text-[10px] font-black uppercase tracking-widest
-                            border border-[#0F0F0F] ${categoryStyle[props.category]}`}
+                            border border-border ${categoryStyle[props.category]}`}
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         {categories[props.category]}
@@ -53,14 +53,14 @@ const Experience = (props) => {
 
                 {/* Company */}
                 <h4
-                    className="text-sm font-bold text-[#000080] mb-1 uppercase tracking-wider"
+                    className="text-sm font-bold text-primary mb-1 uppercase tracking-wider"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                     {props.company}
                 </h4>
 
                 {props.location && (
-                    <p className="text-xs text-[#4A4A4A] dark:text-[#A0A0A0] italic mb-3"
+                    <p className="text-xs text-muted-foreground italic mb-3"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                         {props.location}
                     </p>
@@ -68,9 +68,9 @@ const Experience = (props) => {
 
                 {/* Date range */}
                 <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 bg-[#000080] flex-shrink-0" />
+                    <div className="w-2 h-2 bg-primary flex-shrink-0" />
                     <span
-                        className="text-xs font-bold text-[#0F0F0F] dark:text-[#FAFAFA] uppercase tracking-wider"
+                        className="text-xs font-bold text-foreground uppercase tracking-wider"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         {dateStr(props.from)} — {isPresent ? 'Present' : dateStr(props.to)}
@@ -81,9 +81,9 @@ const Experience = (props) => {
                 {props.achievements?.length > 0 && (
                     <ul className="space-y-1.5">
                         {props.achievements.map((ach, i) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-[#4A4A4A] dark:text-[#A0A0A0] leading-relaxed"
+                            <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground leading-relaxed"
                                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                                <span className="mt-1 w-2 h-2 bg-[#000080] flex-shrink-0" />
+                                <span className="mt-1 w-2 h-2 bg-primary flex-shrink-0" />
                                 <span>{ach}</span>
                             </li>
                         ))}

@@ -21,24 +21,24 @@ function OrganizationalExperience(props) {
     return (
         <motion.div
             className="h-full w-full max-w-sm
-                bg-[#FFFFFF] dark:bg-[#1A1A1A]
-                border-2 border-[#0F0F0F] dark:border-[#0F0F0F]
-                shadow-[4px_4px_0_0_#000080]
+                bg-card text-card-foreground
+                border-2 border-border
+                shadow-[4px_4px_0_0_var(--color-primary)]
                 overflow-hidden group
                 transition-all duration-150"
-            whileHover={{ x: -2, y: -2, boxShadow: '6px 6px 0 0 #000080' }}
+            whileHover={{ x: -2, y: -2, boxShadow: "6px 6px 0 0 var(--color-primary)" }}
             transition={{ duration: 0.15, type: 'tween' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
         >
             {/* Image */}
-            <div className="relative overflow-hidden h-40 sm:h-48 border-b-2 border-[#0F0F0F]">
+            <div className="relative overflow-hidden h-40 sm:h-48 border-b-2 border-border">
                 <motion.img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     src={props.image}
                     alt={`${props.position} thumbnail`}
                 />
-                <div className="absolute inset-0 bg-[#0F0F0F]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-foreground/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
             {/* Content */}
@@ -47,7 +47,7 @@ function OrganizationalExperience(props) {
                 <span
                     className="inline-block w-fit px-2 py-0.5
                         text-[10px] font-black uppercase tracking-widest
-                        bg-[#000080] text-white border border-[#0F0F0F]"
+                        bg-primary text-primary-foreground border border-border"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                     {props.category}
@@ -55,8 +55,8 @@ function OrganizationalExperience(props) {
 
                 {/* Position Title */}
                 <h3
-                    className="text-base sm:text-lg font-black text-[#0F0F0F] dark:text-[#FAFAFA]
-                        group-hover:text-[#000080] transition-colors duration-200 leading-tight uppercase"
+                    className="text-base sm:text-lg font-black text-foreground
+                        group-hover:text-primary transition-colors duration-200 leading-tight uppercase"
                     style={{ fontFamily: "'Archivo Black', sans-serif" }}
                 >
                     {props.position}
@@ -64,14 +64,14 @@ function OrganizationalExperience(props) {
 
                 {/* Organization */}
                 {props.organization && (
-                    <p className="text-xs font-bold text-[#000080] uppercase tracking-wider"
+                    <p className="text-xs font-bold text-primary uppercase tracking-wider"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                         {props.organization}
                     </p>
                 )}
 
                 {/* Description */}
-                <div className="text-xs sm:text-sm text-[#4A4A4A] dark:text-[#A0A0A0] leading-relaxed">
+                <div className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     <p className="line-clamp-4 text-justify leading-[1.65]"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                         {Array.isArray(props.desc) ? props.desc.join('. ') : props.desc}

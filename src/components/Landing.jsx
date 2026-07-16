@@ -38,7 +38,7 @@ const Landing = () => {
                 <motion.p
                     variants={itemVariants}
                     className="inline-block text-xs md:text-sm font-bold uppercase tracking-[0.25em]
-                        text-[#000080] border-2 border-[#000080]
+                        text-primary border-2 border-primary
                         px-3 py-1"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
@@ -48,7 +48,7 @@ const Landing = () => {
                 {/* Main Headline */}
                 <motion.h1
                     variants={itemVariants}
-                    className="uppercase leading-[1.05] text-[#0F0F0F] dark:text-[#FAFAFA]"
+                    className="uppercase leading-[1.05] text-foreground"
                     style={{
                         fontFamily: "'Archivo Black', sans-serif",
                         fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
@@ -56,13 +56,13 @@ const Landing = () => {
                     }}
                 >
                     Architecting Logic<br />
-                    <span className="text-[#000080]">Designing</span> Experiences.
+                    <span className="text-primary">Designing</span> Experiences.
                 </motion.h1>
 
                 {/* Description */}
                 <motion.p
                     variants={itemVariants}
-                    className="text-base md:text-lg text-[#0F0F0F] dark:text-[#FAFAFA] leading-[1.7] max-w-xl"
+                    className="text-base md:text-lg text-foreground leading-[1.7] max-w-xl"
                     style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 400 }}
                 >
                     I bridge the gap between technical execution and enterprise strategy.
@@ -80,14 +80,14 @@ const Landing = () => {
                         href="/files/CV_ACHRIE RAKA RAMADHANI.pdf"
                         download
                         className="flex items-center gap-2 px-6 py-3
-                            bg-[#000080] text-white
-                            border-2 border-[#0F0F0F]
-                            shadow-[4px_4px_0_0_#0F0F0F]
+                            bg-primary text-primary-foreground
+                            border-2 border-border
+                            shadow-[4px_4px_0_0_var(--color-border)]
                             font-bold uppercase tracking-wider text-sm
                             transition-all duration-150 cursor-pointer select-none"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        whileHover={{ x: -2, y: -2, boxShadow: "6px 6px 0 0 #0F0F0F" }}
-                        whileTap={{   x:  2, y:  2, boxShadow: "1px 1px 0 0 #0F0F0F" }}
+                        whileHover={{ x: -2, y: -2, boxShadow: "6px 6px 0 0 var(--color-border)" }}
+                        whileTap={{   x:  2, y:  2, boxShadow: "1px 1px 0 0 var(--color-border)" }}
                         transition={{ duration: 0.1 }}
                     >
                         <DownloadIcon size={18} />
@@ -100,15 +100,14 @@ const Landing = () => {
                         smooth={true}
                         duration={500}
                         className="flex items-center gap-2 px-6 py-3
-                            bg-transparent text-[#000080] dark:text-[#FAFAFA]
-                            border-2 border-[#000080] dark:border-[#FAFAFA]
-                            shadow-[4px_4px_0_0_#000080]
+                            bg-transparent text-primary border-2 border-primary
+                            shadow-[4px_4px_0_0_var(--color-primary)]
                             font-bold uppercase tracking-wider text-sm
                             transition-all duration-150 cursor-pointer select-none
                             hover:-translate-x-0.5 hover:-translate-y-0.5
-                            hover:shadow-[6px_6px_0_0_#000080]
+                            hover:shadow-[6px_6px_0_0_var(--color-primary)]
                             active:translate-x-0.5 active:translate-y-0.5
-                            active:shadow-[1px_1px_0_0_#000080]"
+                            active:shadow-[1px_1px_0_0_var(--color-primary)]"
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                         View Projects
@@ -124,13 +123,13 @@ const Landing = () => {
                 initial="hidden"
                 animate="visible"
             >
-                {/* Offset frame for depth */}
-                <div className="absolute inset-0 translate-x-3 translate-y-3 bg-[#000080] -z-10" />
+                {/* Offset depth frame using primary color */}
+                <div className="absolute inset-0 translate-x-3 translate-y-3 bg-primary -z-10" />
                 <motion.img
                     src="/image/profile-pict.png"
                     alt="Raka Ramadhani Profile Picture"
                     className="w-60 md:w-[360px] h-60 md:h-[360px] object-cover
-                        border-4 border-[#0F0F0F] dark:border-[#FAFAFA]
+                        border-4 border-border
                         grayscale-[10%]"
                     whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
                 />

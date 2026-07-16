@@ -14,7 +14,7 @@ const ScrollProgress = () => {
 
     return (
         <div
-            className="fixed top-0 left-0 right-0 h-1 bg-[#000080] z-50 origin-left"
+            className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-left"
             style={{
                 transform: `scaleX(${scrollProgress / 100})`,
                 transition: 'transform 0.1s linear',
